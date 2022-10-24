@@ -26,9 +26,14 @@ namespace Fall2020_CSC403_Project {
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
-
+      player.HealEvent += PlayerMagic;
+      player.Strength_UpEvent += PlayerMagic;
+      
       // show health
       UpdateHealthBars();
+
+      // show magic
+      UpdateMagicBars();
     }
 
     public void SetupForBossBattle() {
@@ -63,10 +68,26 @@ namespace Fall2020_CSC403_Project {
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
 
+    private void UpdateMagicBars() {
+      float playerMagicPer = player.Magic / (float)player.MaxMagic;
+
+      const int MAX_MAGICBAR_WIDTH = 226;
+      lblPlayerMagicFull.Width = (int)(MAX_MAGICBAR_WIDTH * playerMagicPer);
+
+      lblPlayerMagicFull.Text = player.Magic.ToString();
+    }
+
     private void btnAttack_Click(object sender, EventArgs e) {
-      player.OnAttack(-4);
+      if (player.PlayerStrength == 2) {
+        player.OnAttack(-4);
+      }
+
+      if (player.PlayerStrength == 5) {
+        player.OnAttack(-7);
+      }
+
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+        enemy.OnEnemyAttack(-2);
       }
 
       UpdateHealthBars();
@@ -76,12 +97,36 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
-    private void EnemyDamage(int amount) {
+    private void btnHeal_Click(object sender, EventArgs e) {
+        if (player.Magic >= 5 && enemy.Health > 0) {
+          player.OnHeal(-5);
+        }
+        
+        UpdateMagicBars();
+    }
+
+    private void btnStrength_Up_Click(object sender, EventArgs e) {
+        if (player.Magic >= 10 && enemy.Health > 0) {
+          player.OnStrength_Up(-10);
+        }
+
+        UpdateMagicBars();
+    }
+
+      private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
 
     private void PlayerDamage(int amount) {
       player.AlterHealth(amount);
+    }
+
+    private void PlayerMagic(int amount) {
+      player.AlterMagic(amount);
+    }
+
+    private void PlayerStrength(int amount) {
+      player.AlterStrength(amount);
     }
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
@@ -90,3 +135,4 @@ namespace Fall2020_CSC403_Project {
     }
   }
 }
+// find lblfull~.text

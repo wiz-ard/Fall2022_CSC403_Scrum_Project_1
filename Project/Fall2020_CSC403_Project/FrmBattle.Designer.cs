@@ -1,4 +1,6 @@
-﻿namespace Fall2020_CSC403_Project {
+﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
+
+namespace Fall2020_CSC403_Project {
   partial class FrmBattle {
     /// <summary>
     /// Required designer variable.
@@ -26,8 +28,10 @@
       this.components = new System.ComponentModel.Container();
       this.btnAttack = new System.Windows.Forms.Button();
       this.lblPlayerHealthFull = new System.Windows.Forms.Label();
+      this.lblPlayerMagicFull = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
+      this.label3 = new System.Windows.Forms.Label();
       this.lblEnemyHealthFull = new System.Windows.Forms.Label();
       this.picBossBattle = new System.Windows.Forms.PictureBox();
       this.picEnemy = new System.Windows.Forms.PictureBox();
@@ -54,35 +58,54 @@
       this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
       this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
-      this.lblPlayerHealthFull.Location = new System.Drawing.Point(71, 60);
+      this.lblPlayerHealthFull.Location = new System.Drawing.Point(71, 30);
       this.lblPlayerHealthFull.Name = "lblPlayerHealthFull";
       this.lblPlayerHealthFull.Size = new System.Drawing.Size(226, 20);
       this.lblPlayerHealthFull.TabIndex = 3;
+      //
+      // lblPlayerMagicFull
       // 
-      // label1
+      this.lblPlayerMagicFull.BackColor = System.Drawing.Color.DarkOrange;
+      this.lblPlayerMagicFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblPlayerMagicFull.ForeColor = System.Drawing.Color.White;
+      this.lblPlayerMagicFull.Location = new System.Drawing.Point(71, 60);
+      this.lblPlayerMagicFull.Name = "lblPlayerMagicFull";
+      this.lblPlayerMagicFull.Size = new System.Drawing.Size(226, 20);
+      this.lblPlayerMagicFull.TabIndex = 3;
+      // 
+      // label1(background for playerhealth)
       // 
       this.label1.BackColor = System.Drawing.Color.Black;
       this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-      this.label1.Location = new System.Drawing.Point(70, 59);
+      this.label1.Location = new System.Drawing.Point(70, 29);
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(229, 23);
       this.label1.TabIndex = 4;
       // 
-      // label2
+      // label2(background for enemyhealth)
       // 
       this.label2.BackColor = System.Drawing.Color.Black;
       this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-      this.label2.Location = new System.Drawing.Point(515, 59);
+      this.label2.Location = new System.Drawing.Point(515, 29);
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(229, 23);
       this.label2.TabIndex = 5;
+      //
+      // label3(background for playermagic)
+      // 
+      this.label3.BackColor = System.Drawing.Color.Black;
+      this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.label3.Location = new System.Drawing.Point(70, 59);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(229, 23);
+      this.label3.TabIndex = 4;
       // 
       // lblEnemyHealthFull
       // 
       this.lblEnemyHealthFull.BackColor = System.Drawing.Color.Blue;
       this.lblEnemyHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblEnemyHealthFull.ForeColor = System.Drawing.Color.White;
-      this.lblEnemyHealthFull.Location = new System.Drawing.Point(516, 60);
+      this.lblEnemyHealthFull.Location = new System.Drawing.Point(516, 30);
       this.lblEnemyHealthFull.Name = "lblEnemyHealthFull";
       this.lblEnemyHealthFull.Size = new System.Drawing.Size(226, 20);
       this.lblEnemyHealthFull.TabIndex = 6;
@@ -138,6 +161,7 @@
       this.Controls.Add(this.lblEnemyHealthFull);
       this.Controls.Add(this.label2);
       this.Controls.Add(this.lblPlayerHealthFull);
+      this.Controls.Add(this.lblPlayerMagicFull);
       this.Controls.Add(this.label1);
       this.Controls.Add(this.btnAttack);
       this.Controls.Add(this.picEnemy);
@@ -159,8 +183,10 @@
     private System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Button btnAttack;
     private System.Windows.Forms.Label lblPlayerHealthFull;
+    private System.Windows.Forms.Label lblPlayerMagicFull;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.Label label3;
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
