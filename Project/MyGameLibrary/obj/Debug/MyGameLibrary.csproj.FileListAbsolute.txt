@@ -1,0 +1,6 @@
+C:\Users\jacks\Desktop\Software design and Enginering CSC-403-002\Scrum_Project_1\Project\MyGameLibrary\bin\Debug\MyGameLibrary.dll
+C:\Users\jacks\Desktop\Software design and Enginering CSC-403-002\Scrum_Project_1\Project\MyGameLibrary\bin\Debug\MyGameLibrary.pdb
+C:\Users\jacks\Desktop\Software design and Enginering CSC-403-002\Scrum_Project_1\Project\MyGameLibrary\obj\Debug\MyGameLibrary.csproj.AssemblyReference.cache
+C:\Users\jacks\Desktop\Software design and Enginering CSC-403-002\Scrum_Project_1\Project\MyGameLibrary\obj\Debug\MyGameLibrary.csproj.CoreCompileInputs.cache
+C:\Users\jacks\Desktop\Software design and Enginering CSC-403-002\Scrum_Project_1\Project\MyGameLibrary\obj\Debug\MyGameLibrary.dll
+C:\Users\jacks\Desktop\Software design and Enginering CSC-403-002\Scrum_Project_1\Project\MyGameLibrary\obj\Debug\MyGameLibrary.pdb
