@@ -9,6 +9,9 @@ namespace Fall2020_CSC403_Project.code {
     /// THis is the image for an enemy
     /// </summary>
     public Image Img { get; set; }
+    
+    // Counter to handle switch cases for enemy movement
+    public int Counter = 0;
 
     /// <summary>
     /// this is the background color for the fight form for this enemy
