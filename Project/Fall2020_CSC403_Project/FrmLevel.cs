@@ -100,6 +100,87 @@ namespace Fall2020_CSC403_Project {
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
+    
+    // move cheeto
+    private void tmrEnemyCheetoMove_Tick(object sender, EventArgs e)
+    {
+        switch (enemyCheeto.Counter)
+        {
+            case 0:
+                enemyCheeto.GoLeft();
+                break;
+            case 1:
+                enemyCheeto.GoUp();
+                break;
+            case 2:
+                enemyCheeto.GoDown();
+                break;
+            case 3:
+                enemyCheeto.GoRight();
+                break;
+        }
+
+        enemyCheeto.Move();
+
+        if (HitAWall(enemyCheeto))
+        {
+            enemyCheeto.MoveBack();
+            enemyCheeto.Counter += 1;
+        }
+
+        while (HitAChar(enemyCheeto, player)){
+            enemyCheeto.MoveBack();
+            enemyCheeto.ResetMoveSpeed();
+        }
+
+        if (enemyCheeto.Counter >= 4)
+        {
+            enemyCheeto.Counter = 0;
+        }
+        //updates cheeto picture box
+        picEnemyCheeto.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
+    }
+    
+    //move poison packet
+    private void tmrEnemyPoisonPacketMove_Tick(object sender, EventArgs e)
+    {
+        switch (enemyPoisonPacket.Counter)
+        {
+            case 0:
+                enemyPoisonPacket.GoDown();
+                break;
+            case 1:
+                enemyPoisonPacket.GoRight();
+                break;
+            case 2:
+                enemyPoisonPacket.GoLeft();
+                break;
+            case 3:
+                enemyPoisonPacket.GoUp();
+                break;
+        }
+        enemyPoisonPacket.Move();
+
+        if (HitAWall(enemyPoisonPacket))
+        {
+            enemyPoisonPacket.MoveBack();
+            enemyPoisonPacket.Counter += 1;
+        }
+
+        while (HitAChar(enemyPoisonPacket, player))
+        {
+            enemyPoisonPacket.MoveBack();
+            enemyPoisonPacket.ResetMoveSpeed();
+        }
+
+        if (enemyPoisonPacket.Counter >= 4)
+        {
+            enemyPoisonPacket.Counter = 0;
+        }
+
+        //updates posion packet picture box
+        picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
+    }
 
     private bool HitAWall(Character c) {
       bool hitAWall = false;
