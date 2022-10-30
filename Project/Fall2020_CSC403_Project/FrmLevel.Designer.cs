@@ -88,6 +88,18 @@
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
+            //
+            //tmrEnemyCheetoMove
+            //
+            this.tmrEnemyCheetoMove.Enabled = true;
+            this.tmrEnemyCheetoMove.Interval = 10;
+            this.tmrEnemyCheetoMove.Tick += new System.EventHandler(this.tmrEnemyCheetoMove_Tick);
+            //
+            //tmrEnemyPoisonPacketMove
+            //
+            this.tmrEnemyPoisonPacketMove.Enabled = true;
+            this.tmrEnemyPoisonPacketMove.Interval = 10;
+            this.tmrEnemyPoisonPacketMove.Tick += new System.EventHandler(this.tmrEnemyPoisonPacketMove_Tick);
             // 
             // picEnemyCheeto
             // 
