@@ -78,7 +78,7 @@ namespace Fall2020_CSC403_Project {
                 instance = null;
                 if (player.Health > enemy.Health)
                 {
-                    //SetupForVictoryScreen();
+                    SetupForVictoryScreen();
                 }
                 else if (player.Health == enemy.Health)
                 {
@@ -131,7 +131,7 @@ namespace Fall2020_CSC403_Project {
       }
       if (enemy.Health <= 0 && player.Health > enemy.Health)
             {
-                    //SetupForVictoryScreen();
+                    SetupForVictoryScreen();
             }
     }
 
