@@ -45,7 +45,7 @@ namespace Fall2020_CSC403_Project.code {
     }
 
     public void OnStrength_Up(int amount) {
-      Strength_UpEvent((int)(amount)); //* Strength_Up_cost
+      Strength_UpEvent((int)(amount));
         }
 
     public void AlterHealth(int amount) {

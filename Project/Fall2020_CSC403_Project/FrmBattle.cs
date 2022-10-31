@@ -10,9 +10,15 @@ namespace Fall2020_CSC403_Project {
     public static FrmBattle instance = null;
     private Enemy enemy;
     private Player player;
+    private int start_time;
+    private System.Windows.Forms.Timer tmrbattle_timer;
+
 
     private FrmBattle() {
+      start_time = 30;
       InitializeComponent();
+      player = Game.player;
+      this.tmrbattle_timer = new System.Windows.Forms.Timer(this.components);
       player = Game.player;
     }
 
@@ -47,6 +53,13 @@ namespace Fall2020_CSC403_Project {
       tmrFinalBattle.Enabled = true;
     }
 
+    public void SetupForVictoryScreen()
+        {
+            frmVictory victory = new frmVictory();
+            victory.Show();
+            this.Hide();
+        }
+
     public static FrmBattle GetInstance(Enemy enemy) {
       if (instance == null) {
         instance = new FrmBattle();
@@ -55,6 +68,26 @@ namespace Fall2020_CSC403_Project {
       }
       return instance;
     }
+
+    private void battle_time_Tick(object sender,EventArgs e)
+        {
+            lblbattletime.Text = start_time--.ToString();
+            if (start_time < 0)
+            {
+                tmrbattle_time.Stop();
+                instance = null;
+                if (player.Health > enemy.Health)
+                {
+                    //SetupForVictoryScreen();
+                }
+                else if (player.Health == enemy.Health)
+                {
+                    Close();
+                }
+            }
+
+                  
+        }
 
     private void UpdateHealthBars() {
       float playerHealthPer = player.Health / (float)player.MaxHealth;
@@ -96,6 +129,10 @@ namespace Fall2020_CSC403_Project {
         instance = null;
         Close();
       }
+      if (enemy.Health <= 0 && player.Health > enemy.Health)
+            {
+                    //SetupForVictoryScreen();
+            }
     }
 
     private void btnHeal_Click(object sender, EventArgs e) {
@@ -139,7 +176,11 @@ namespace Fall2020_CSC403_Project {
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
-      tmrFinalBattle.Enabled = false;
+      tmrFinalBattle.Enabled = true;
     }
-  }
+        private void lblbattletime_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
