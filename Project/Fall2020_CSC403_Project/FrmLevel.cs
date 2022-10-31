@@ -1,7 +1,9 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -11,8 +13,9 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+    public static bool IsPaused = false;
 
-    private DateTime timeBegin;
+    private Stopwatch stopwatch;
     private FrmBattle frmBattle;
 
     public FrmLevel() {
@@ -43,7 +46,7 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
-      timeBegin = DateTime.Now;
+      stopwatch = new Stopwatch();
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -59,11 +62,19 @@ namespace Fall2020_CSC403_Project {
       player.ResetMoveSpeed();
     }
 
-    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
-      string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
-    }
+    public void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
+            if (IsPaused == false)
+            {
+                stopwatch.Start();
+                TimeSpan span = stopwatch.Elapsed;
+                string time = span.ToString(@"hh\:mm\:ss");
+                lblInGameTime.Text = "Time: " + time.ToString();
+            }
+            else
+            {
+                stopwatch.Stop();
+            }
+        }
 
     private void tmrUpdateEnemyPic_Tick(object sender, EventArgs e){
             if (enemyPoisonPacket.Health <= 0){
@@ -128,26 +139,37 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
+        if (IsPaused == false)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Left:
+                        player.GoLeft();
+                        break;
 
-        case Keys.Right:
-          player.GoRight();
-          break;
+                    case Keys.Right:
+                        player.GoRight();
+                        break;
 
-        case Keys.Up:
-          player.GoUp();
-          break;
+                    case Keys.Up:
+                        player.GoUp();
+                        break;
 
-        case Keys.Down:
-          player.GoDown();
-          break;
+                    case Keys.Down:
+                        player.GoDown();
+                        break;
 
-        default:
-          player.ResetMoveSpeed();
-          break;
+                    case Keys.Escape:
+                        PauseMenu pauseMenu = new PauseMenu();
+                        pauseMenu.Show();
+                        IsPaused = true;
+                        player.ResetMoveSpeed();
+                        break;
+
+                    default:
+                        player.ResetMoveSpeed();
+                        break;
+                }
       }
     }
     }
