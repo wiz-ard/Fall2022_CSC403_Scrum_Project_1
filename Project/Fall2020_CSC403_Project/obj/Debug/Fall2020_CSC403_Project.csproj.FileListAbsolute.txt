@@ -15,3 +15,20 @@ C:\Users\jacks\Desktop\Software design and Enginering CSC-403-002\Scrum_Project_
 C:\Users\jacks\Desktop\Software design and Enginering CSC-403-002\Scrum_Project_1\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.pdb
 C:\Users\jacks\Desktop\Software design and Enginering CSC-403-002\Scrum_Project_1\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.FrmStartMenu.resources
 C:\Users\jacks\Desktop\Software design and Enginering CSC-403-002\Scrum_Project_1\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.frmVictory.resources
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\bin\Debug\Fall2020_CSC403_Project.exe.config
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\bin\Debug\Fall2020_CSC403_Project.exe
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\bin\Debug\Fall2020_CSC403_Project.pdb
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\bin\Debug\MyGameLibrary.dll
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\bin\Debug\MyGameLibrary.pdb
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.csproj.AssemblyReference.cache
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.csproj.SuggestedBindingRedirects.cache
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.FrmBattle.resources
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.FrmLevel.resources
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.FrmStartMenu.resources
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.frmVictory.resources
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.Properties.Resources.resources
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.csproj.GenerateResource.cache
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.csproj.CoreCompileInputs.cache
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.csproj.CopyComplete
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.exe
+C:\Users\jacks\Source\Repos\wiz-ard\Fall2022_CSC403_Team_TwoSoft\Project\Fall2020_CSC403_Project\obj\Debug\Fall2020_CSC403_Project.pdb
