@@ -23,6 +23,8 @@
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
+            this.tmrEnemyCheetoMove = new System.Windows.Forms.Timer(this.components);
+            this.tmrEnemyPoisonPacketMove = new System.Windows.Forms.Timer(this.components);
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
             this.lblInGameTime = new System.Windows.Forms.Label();
@@ -87,6 +89,18 @@
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
+            //
+            //tmrEnemyCheetoMove
+            //
+            this.tmrEnemyCheetoMove.Enabled = true;
+            this.tmrEnemyCheetoMove.Interval = 10;
+            this.tmrEnemyCheetoMove.Tick += new System.EventHandler(this.tmrEnemyCheetoMove_Tick);
+            //
+            //tmrEnemyPoisonPacketMove
+            //
+            this.tmrEnemyPoisonPacketMove.Enabled = true;
+            this.tmrEnemyPoisonPacketMove.Interval = 10;
+            this.tmrEnemyPoisonPacketMove.Tick += new System.EventHandler(this.tmrEnemyPoisonPacketMove_Tick);
             // 
             // picEnemyCheeto
             // 
@@ -341,6 +355,8 @@
     private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
     private System.Windows.Forms.Timer tmrPlayerMove;
+    private System.Windows.Forms.Timer tmrEnemyCheetoMove;
+    private System.Windows.Forms.Timer tmrEnemyPoisonPacketMove;
     private System.Windows.Forms.PictureBox picWall3;
     private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
     private System.Windows.Forms.PictureBox picEnemyCheeto;
