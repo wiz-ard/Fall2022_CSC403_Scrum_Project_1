@@ -23,13 +23,13 @@
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-            this.tmrEnemyCheetoMove = new System.Windows.Forms.Timer(this.components);
-            this.tmrEnemyPoisonPacketMove = new System.Windows.Forms.Timer(this.components);
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.tmrEnemyCheetoMove = new System.Windows.Forms.Timer(this.components);
+            this.tmrEnemyPoisonPacketMove = new System.Windows.Forms.Timer(this.components);
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
