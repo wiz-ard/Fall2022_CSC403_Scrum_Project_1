@@ -1,5 +1,6 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -65,18 +66,6 @@ namespace Fall2020_CSC403_Project {
       lblInGameTime.Text = "Time: " + time.ToString();
     }
 
-    private void tmrUpdateEnemyPic_Tick(object sender, EventArgs e){
-            if (enemyPoisonPacket.Health <= 0){
-                picEnemyPoisonPacket.Hide();
-            }
-            if (bossKoolaid.Health <= 0){
-                picBossKoolAid.Hide();
-            }
-            if (enemyCheeto.Health <= 0){
-                picEnemyCheeto.Hide();
-            }
-        }
-
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
       player.Move();
@@ -100,8 +89,7 @@ namespace Fall2020_CSC403_Project {
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
-    
-    // move cheeto
+    // updates Cheeto picture box
     private void tmrEnemyCheetoMove_Tick(object sender, EventArgs e)
     {
         switch (enemyCheeto.Counter)
@@ -137,11 +125,9 @@ namespace Fall2020_CSC403_Project {
         {
             enemyCheeto.Counter = 0;
         }
-        //updates cheeto picture box
         picEnemyCheeto.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
     }
-    
-    //move poison packet
+
     private void tmrEnemyPoisonPacketMove_Tick(object sender, EventArgs e)
     {
         switch (enemyPoisonPacket.Counter)
@@ -178,7 +164,6 @@ namespace Fall2020_CSC403_Project {
             enemyPoisonPacket.Counter = 0;
         }
 
-        //updates posion packet picture box
         picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
     }
 
@@ -231,5 +216,9 @@ namespace Fall2020_CSC403_Project {
           break;
       }
     }
+
+    private void lblInGameTime_Click(object sender, EventArgs e) {
+
     }
+  }
 }
