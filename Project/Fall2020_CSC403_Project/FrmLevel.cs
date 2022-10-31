@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
@@ -12,8 +13,9 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+    public static bool IsPaused = false;
 
-    private DateTime timeBegin;
+    private Stopwatch stopwatch;
     private FrmBattle frmBattle;
 
     public FrmLevel() {
@@ -44,7 +46,7 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
-      timeBegin = DateTime.Now;
+      stopwatch = new Stopwatch();
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
@@ -60,11 +62,31 @@ namespace Fall2020_CSC403_Project {
       player.ResetMoveSpeed();
     }
 
-    private void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
-      TimeSpan span = DateTime.Now - timeBegin;
-      string time = span.ToString(@"hh\:mm\:ss");
-      lblInGameTime.Text = "Time: " + time.ToString();
-    }
+    public void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
+            if (IsPaused == false)
+            {
+                stopwatch.Start();
+                TimeSpan span = stopwatch.Elapsed;
+                string time = span.ToString(@"hh\:mm\:ss");
+                lblInGameTime.Text = "Time: " + time.ToString();
+            }
+            else
+            {
+                stopwatch.Stop();
+            }
+        }
+
+    private void tmrUpdateEnemyPic_Tick(object sender, EventArgs e){
+            if (enemyPoisonPacket.Health <= 0){
+                picEnemyPoisonPacket.Hide();
+            }
+            if (bossKoolaid.Health <= 0){
+                picBossKoolAid.Hide();
+            }
+            if (enemyCheeto.Health <= 0){
+                picEnemyCheeto.Hide();
+            }
+        }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
@@ -92,79 +114,93 @@ namespace Fall2020_CSC403_Project {
     // updates Cheeto picture box
     private void tmrEnemyCheetoMove_Tick(object sender, EventArgs e)
     {
-        switch (enemyCheeto.Counter)
-        {
-            case 0:
-                enemyCheeto.GoLeft();
-                break;
-            case 1:
-                enemyCheeto.GoUp();
-                break;
-            case 2:
-                enemyCheeto.GoDown();
-                break;
-            case 3:
-                enemyCheeto.GoRight();
-                break;
-        }
+            if (IsPaused == false)
+            {
+                if (enemyCheeto.Health >= 0)
+                {
+                    switch (enemyCheeto.Counter)
+                    {
+                        case 0:
+                            enemyCheeto.GoLeft();
+                            break;
+                        case 1:
+                            enemyCheeto.GoUp();
+                            break;
+                        case 2:
+                            enemyCheeto.GoDown();
+                            break;
+                        case 3:
+                            enemyCheeto.GoRight();
+                            break;
+                    }
 
-        enemyCheeto.Move();
+                    enemyCheeto.Move();
 
-        if (HitAWall(enemyCheeto))
-        {
-            enemyCheeto.MoveBack();
-            enemyCheeto.Counter += 1;
-        }
+                    if (HitAWall(enemyCheeto))
+                    {
+                        enemyCheeto.MoveBack();
+                        enemyCheeto.Counter += 1;
+                    }
 
-        while (HitAChar(enemyCheeto, player)){
-            enemyCheeto.MoveBack();
-            enemyCheeto.ResetMoveSpeed();
-        }
+                    while (HitAChar(enemyCheeto, player))
+                    {
+                        enemyCheeto.MoveBack();
+                        enemyCheeto.ResetMoveSpeed();
+                    }
 
-        if (enemyCheeto.Counter >= 4)
-        {
-            enemyCheeto.Counter = 0;
-        }
-        picEnemyCheeto.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
+                    if (enemyCheeto.Counter >= 4)
+                    {
+                        enemyCheeto.Counter = 0;
+                    }
+                    picEnemyCheeto.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
+                }
+            }
     }
 
     private void tmrEnemyPoisonPacketMove_Tick(object sender, EventArgs e)
     {
-        switch (enemyPoisonPacket.Counter)
-        {
-            case 0:
-                enemyPoisonPacket.GoDown();
-                break;
-            case 1:
-                enemyPoisonPacket.GoRight();
-                break;
-            case 2:
-                enemyPoisonPacket.GoLeft();
-                break;
-            case 3:
-                enemyPoisonPacket.GoUp();
-                break;
-        }
-        enemyPoisonPacket.Move();
+            if (IsPaused == false)
+            {
+                if (enemyPoisonPacket.Health >= 0)
+                {
+                    switch (enemyPoisonPacket.Counter)
+                    {
+                        case 0:
+                            enemyPoisonPacket.GoDown();
+                            break;
+                        case 1:
+                            enemyPoisonPacket.GoRight();
+                            break;
+                        case 2:
+                            enemyPoisonPacket.GoLeft();
+                            break;
+                        case 3:
+                            enemyPoisonPacket.GoUp();
+                            break;
+                    }
+                    enemyPoisonPacket.Move();
 
-        if (HitAWall(enemyPoisonPacket))
-        {
-            enemyPoisonPacket.MoveBack();
-            enemyPoisonPacket.Counter += 1;
-        }
+                    if (HitAWall(enemyPoisonPacket))
+                    {
+                        enemyPoisonPacket.MoveBack();
+                        enemyPoisonPacket.Counter += 1;
+                    }
 
-        while (HitAChar(enemyPoisonPacket, player))
-        {
-            enemyPoisonPacket.MoveBack();
-            enemyPoisonPacket.ResetMoveSpeed();
-        }
+                    while (HitAChar(enemyPoisonPacket, player))
+                    {
+                        enemyPoisonPacket.MoveBack();
+                        enemyPoisonPacket.ResetMoveSpeed();
+                    }
 
-        if (enemyPoisonPacket.Counter >= 4)
-        {
-            enemyPoisonPacket.Counter = 0;
-        }
+                    if (enemyPoisonPacket.Counter >= 4)
+                    {
+                        enemyPoisonPacket.Counter = 0;
+                    }
 
-        picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
+                    picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
+                }
+            }
+       
     }
 
     private bool HitAWall(Character c) {
@@ -194,31 +230,38 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.KeyCode) {
-        case Keys.Left:
-          player.GoLeft();
-          break;
+        if (IsPaused == false)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Left:
+                        player.GoLeft();
+                        break;
 
-        case Keys.Right:
-          player.GoRight();
-          break;
+                    case Keys.Right:
+                        player.GoRight();
+                        break;
 
-        case Keys.Up:
-          player.GoUp();
-          break;
+                    case Keys.Up:
+                        player.GoUp();
+                        break;
 
-        case Keys.Down:
-          player.GoDown();
-          break;
+                    case Keys.Down:
+                        player.GoDown();
+                        break;
 
-        default:
-          player.ResetMoveSpeed();
-          break;
+                    case Keys.Escape:
+                        PauseMenu pauseMenu = new PauseMenu();
+                        pauseMenu.Show();
+                        IsPaused = true;
+                        player.ResetMoveSpeed();
+                        break;
+
+                    default:
+                        player.ResetMoveSpeed();
+                        break;
+                }
       }
-    }
-
-    private void lblInGameTime_Click(object sender, EventArgs e) {
-
     }
   }
 }
