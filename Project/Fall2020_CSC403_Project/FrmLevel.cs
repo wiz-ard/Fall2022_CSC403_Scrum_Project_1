@@ -86,6 +86,11 @@ namespace Fall2020_CSC403_Project {
             if (enemyCheeto.Health <= 0){
                 picEnemyCheeto.Hide();
             }
+            if (player.Health <= 0)
+            {
+                picPlayer.Hide();
+                IsPaused = true;
+            }
         }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
@@ -100,12 +105,15 @@ namespace Fall2020_CSC403_Project {
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
         Fight(enemyPoisonPacket);
+        IsPaused = true;
       }
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
+        IsPaused = true;
       }
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
+        IsPaused = true;
       }
 
       // update player's picture box

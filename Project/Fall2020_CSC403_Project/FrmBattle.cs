@@ -76,12 +76,15 @@ namespace Fall2020_CSC403_Project {
             {
                 instance = null;
                 Close();
+                player.Collider.DeleteCollider();
+                FrmLevel.IsPaused = false;
             }
             if (enemy.Health <= 0)
             {
                 instance = null;
                 Close();
                 enemy.Collider.DeleteCollider();
+                FrmLevel.IsPaused = false;
             }
         }
 
