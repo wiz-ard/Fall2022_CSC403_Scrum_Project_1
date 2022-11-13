@@ -84,7 +84,7 @@ namespace Fall2020_CSC403_Project {
       // 
       // lblPlayerHealthFull
       // 
-      this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
+      this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Red;
       this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
       this.lblPlayerHealthFull.Location = new System.Drawing.Point(71, 30);
@@ -94,7 +94,7 @@ namespace Fall2020_CSC403_Project {
       //
       // lblPlayerMagicFull
       // 
-      this.lblPlayerMagicFull.BackColor = System.Drawing.Color.DarkOrange;
+      this.lblPlayerMagicFull.BackColor = System.Drawing.Color.Blue;
       this.lblPlayerMagicFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblPlayerMagicFull.ForeColor = System.Drawing.Color.White;
       this.lblPlayerMagicFull.Location = new System.Drawing.Point(71, 60);

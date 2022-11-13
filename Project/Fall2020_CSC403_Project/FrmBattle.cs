@@ -19,7 +19,6 @@ namespace Fall2020_CSC403_Project {
       InitializeComponent();
       player = Game.player;
       this.tmrbattle_timer = new System.Windows.Forms.Timer(this.components);
-      player = Game.player;
     }
 
     public void Setup() {
@@ -136,7 +135,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void btnHeal_Click(object sender, EventArgs e) {
-        if (player.Health < 20 && player.Magic >= 5 && enemy.Health > 0) {
+        if (player.Health < player.MaxHealth && player.Magic >= 5 && enemy.Health > 0) {
           player.OnHeal(-5);
         } 
     }
@@ -161,7 +160,7 @@ namespace Fall2020_CSC403_Project {
     private void PlayerMagic(int amount) {
       player.AlterMagic(amount);
       for (int i=1; i<11; i++) {
-          if (player.Health < 20) {
+          if (player.Health < player.MaxHealth) {
               player.AlterHealth(1);
               UpdateHealthBars();
           }
