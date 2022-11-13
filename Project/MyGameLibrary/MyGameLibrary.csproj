@@ -62,12 +62,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HarderBattleCharacter.cs" />
+    <Compile Include="HardBattleCharacter.cs" />
     <Compile Include="BattleCharacter.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Collider.cs" />
     <Compile Include="Enemy.cs" />
+    <Compile Include="HarderGame.cs" />
+    <Compile Include="HardGame.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="HarderPlayer.cs" />
     <Compile Include="NPC.cs" />
+    <Compile Include="HardPlayer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vector2.cs" />

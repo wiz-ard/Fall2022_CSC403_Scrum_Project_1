@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 #pragma warning disable 1591 // use this to disable comment warnings
 
-    public class BattleCharacter : Character 
+    public class HarderBattleCharacter : Character 
     {
         public int Health { get; private set; }
         public int MaxHealth { get; private set; }
@@ -29,9 +29,9 @@ using System.Threading.Tasks;
 
 
 
-        public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider)
+        public HarderBattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider)
         {
-            MaxHealth = 20;
+            MaxHealth = 10;
             MaxMagic = 20;
             CurrentStrength = 2;
             Strength = CurrentStrength;
