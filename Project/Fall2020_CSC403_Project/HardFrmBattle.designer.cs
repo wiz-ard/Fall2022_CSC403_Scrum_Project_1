@@ -1,28 +1,35 @@
-﻿namespace Fall2020_CSC403_Project {
-  partial class FrmBattle {
-    /// <summary>
-    /// Required designer variable.
-    /// </summary>
-    private System.ComponentModel.IContainer components = null;
+﻿using Fall2020_CSC403_Project.code;
 
-    /// <summary>
-    /// Clean up any resources being used.
-    /// </summary>
-    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing) {
-      if (disposing && (components != null)) {
-        components.Dispose();
-      }
-      base.Dispose(disposing);
-    }
+namespace Fall2020_CSC403_Project
+{
+    partial class HardFrmBattle
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-    #region Windows Form Designer generated code
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent() {
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             this.btnStrength_Up = new System.Windows.Forms.Button();
             this.btnAttack = new System.Windows.Forms.Button();
@@ -232,7 +239,7 @@
             this.Controls.Add(this.lblbattletime);
             this.Controls.Add(this.picVictory);
             this.DoubleBuffered = true;
-            //this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fight!";
@@ -245,10 +252,10 @@
 
         }
 
-    #endregion
+        #endregion
 
-    private System.Windows.Forms.PictureBox picPlayer;
-    private System.Windows.Forms.PictureBox picEnemy;
+        private System.Windows.Forms.PictureBox picPlayer;
+        private System.Windows.Forms.PictureBox picEnemy;
         private System.Windows.Forms.PictureBox picVictory;
         private System.Windows.Forms.Button btnAttack;
         private System.Windows.Forms.Button btnHeal;
@@ -256,11 +263,11 @@
         private System.Windows.Forms.Label lblPlayerHealthFull;
         private System.Windows.Forms.Label lblPlayerMagicFull;
         private System.Windows.Forms.Label label1;
-    private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblEnemyHealthFull;
-    private System.Windows.Forms.PictureBox picBossBattle;
-    private System.Windows.Forms.Timer tmrFinalBattle;
+        private System.Windows.Forms.PictureBox picBossBattle;
+        private System.Windows.Forms.Timer tmrFinalBattle;
         private System.Windows.Forms.Timer tmrbattle_time;
         private System.Windows.Forms.Label lblbattletime;
         private System.Windows.Forms.Timer timer1;

@@ -15,7 +15,8 @@ namespace Fall2020_CSC403_Project {
     private Character[] walls;
     public static bool IsPaused = false;
 
-    private Stopwatch stopwatch;
+        private DateTime timeBegin;
+        private Stopwatch stopwatch;
     private FrmBattle frmBattle;
 
     public FrmLevel() {
@@ -46,7 +47,8 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
-      stopwatch = new Stopwatch();
+            timeBegin = DateTime.Now;
+            stopwatch = new Stopwatch();
     }
 
     private Vector2 CreatePosition(PictureBox pic) {
