@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefeatScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DefeatScreen.Designer.cs">
-      <DependentUpon>DefeatScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,9 +66,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DefeatScreen.resx">
-      <DependentUpon>DefeatScreen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>

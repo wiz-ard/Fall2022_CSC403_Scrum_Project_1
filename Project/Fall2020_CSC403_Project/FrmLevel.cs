@@ -104,6 +104,7 @@ namespace Fall2020_CSC403_Project {
             {
                 picPlayer.Hide();
                 IsPaused = true;
+                Death.Show();
             }
         }
 
@@ -251,6 +252,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void Fight(Enemy enemy) {
+      IsPaused = true;
       player.ResetMoveSpeed();
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
@@ -303,7 +305,7 @@ namespace Fall2020_CSC403_Project {
 
         private void Restart_Click(object sender, EventArgs e)
         {
-
+            Application.Restart();
         }
     }
 }

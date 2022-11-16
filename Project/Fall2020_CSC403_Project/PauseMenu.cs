@@ -27,5 +27,10 @@ namespace Fall2020_CSC403_Project
         {
             Application.Exit();
         }
+
+        private void Restart_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }
