@@ -1,40 +1,39 @@
-namespace Fall2020_CSC403_Project
-{
-    partial class HarderFrmLevel
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+namespace Fall2020_CSC403_Project {
+  partial class HarderFrmLevel {
+    /// <summary>
+    /// Required designer variable.
+    /// </summary>
+    private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+    /// <summary>
+    /// Clean up any resources being used.
+    /// </summary>
+    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    protected override void Dispose(bool disposing) {
+      if (disposing && (components != null)) {
+        components.Dispose();
+      }
+      base.Dispose(disposing);
+    }
 
-        #region Windows Form Designer generated code
+    #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+    /// <summary>
+    /// Required method for Designer support - do not modify
+    /// the contents of this method with the code editor.
+    /// </summary>
+    private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
+            this.tmrEnemyCheetoMove = new System.Windows.Forms.Timer(this.components);
+            this.tmrEnemyPoisonPacketMove = new System.Windows.Forms.Timer(this.components);
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
+            this.picEnemyMikeTysonsNugget = new System.Windows.Forms.PictureBox();
+            this.picEnemySusNugget = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
@@ -51,8 +50,13 @@ namespace Fall2020_CSC403_Project
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.UpdateEnemyPic = new System.Windows.Forms.Timer(this.components);
+            this.Death = new System.Windows.Forms.GroupBox();
+            this.Restart = new System.Windows.Forms.Button();
+            this.Quit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyMikeTysonsNugget)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemySusNugget)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -68,6 +72,7 @@ namespace Fall2020_CSC403_Project
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
+            this.Death.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -81,7 +86,6 @@ namespace Fall2020_CSC403_Project
             this.lblInGameTime.Size = new System.Drawing.Size(46, 18);
             this.lblInGameTime.TabIndex = 2;
             this.lblInGameTime.Text = "label1";
-            this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
             // 
             // tmrUpdateInGameTime
             // 
@@ -93,6 +97,18 @@ namespace Fall2020_CSC403_Project
             this.tmrPlayerMove.Enabled = true;
             this.tmrPlayerMove.Interval = 10;
             this.tmrPlayerMove.Tick += new System.EventHandler(this.tmrPlayerMove_Tick);
+            // 
+            // tmrEnemyCheetoMove
+            // 
+            this.tmrEnemyCheetoMove.Enabled = true;
+            this.tmrEnemyCheetoMove.Interval = 10;
+            this.tmrEnemyCheetoMove.Tick += new System.EventHandler(this.tmrEnemyCheetoMove_Tick);
+            // 
+            // tmrEnemyPoisonPacketMove
+            // 
+            this.tmrEnemyPoisonPacketMove.Enabled = true;
+            this.tmrEnemyPoisonPacketMove.Interval = 10;
+            this.tmrEnemyPoisonPacketMove.Tick += new System.EventHandler(this.tmrEnemyPoisonPacketMove_Tick);
             // 
             // picEnemyCheeto
             // 
@@ -115,6 +131,28 @@ namespace Fall2020_CSC403_Project
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(63, 96);
             this.picEnemyPoisonPacket.TabIndex = 4;
             this.picEnemyPoisonPacket.TabStop = false;
+            // 
+            // picEnemyMikeTysonsNugget
+            // 
+            this.picEnemyMikeTysonsNugget.BackColor = System.Drawing.Color.Transparent;
+            this.picEnemyMikeTysonsNugget.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_miketysonsnugget;
+            this.picEnemyMikeTysonsNugget.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEnemyMikeTysonsNugget.Location = new System.Drawing.Point(500, 80);
+            this.picEnemyMikeTysonsNugget.Name = "picEnemyMikeTysonsNugget";
+            this.picEnemyMikeTysonsNugget.Size = new System.Drawing.Size(180, 150);
+            this.picEnemyMikeTysonsNugget.TabIndex = 18;
+            this.picEnemyMikeTysonsNugget.TabStop = false;
+            // 
+            // picEnemySusNugget
+            // 
+            this.picEnemySusNugget.BackColor = System.Drawing.Color.Transparent;
+            this.picEnemySusNugget.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_susnugget;
+            this.picEnemySusNugget.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEnemySusNugget.Location = new System.Drawing.Point(400, 510);
+            this.picEnemySusNugget.Name = "picEnemySusNugget";
+            this.picEnemySusNugget.Size = new System.Drawing.Size(180, 150);
+            this.picEnemySusNugget.TabIndex = 19;
+            this.picEnemySusNugget.TabStop = false;
             // 
             // picWall3
             // 
@@ -286,6 +324,40 @@ namespace Fall2020_CSC403_Project
             this.UpdateEnemyPic.Enabled = true;
             this.UpdateEnemyPic.Tick += new System.EventHandler(this.tmrUpdateEnemyPic_Tick);
             // 
+            // Death
+            // 
+            this.Death.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.You_Died;
+            this.Death.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Death.Controls.Add(this.Quit);
+            this.Death.Controls.Add(this.Restart);
+            this.Death.Location = new System.Drawing.Point(2, 1);
+            this.Death.Name = "Death";
+            this.Death.Size = new System.Drawing.Size(1173, 722);
+            this.Death.TabIndex = 20;
+            this.Death.TabStop = false;
+            this.Death.Text = "D";
+            this.Death.Visible = false;
+            // 
+            // Restart
+            // 
+            this.Restart.Location = new System.Drawing.Point(514, 509);
+            this.Restart.Name = "Restart";
+            this.Restart.Size = new System.Drawing.Size(121, 51);
+            this.Restart.TabIndex = 0;
+            this.Restart.Text = "Restart";
+            this.Restart.UseVisualStyleBackColor = true;
+            this.Restart.Click += new System.EventHandler(this.Restart_Click);
+            // 
+            // Quit
+            // 
+            this.Quit.Location = new System.Drawing.Point(514, 599);
+            this.Quit.Name = "Quit";
+            this.Quit.Size = new System.Drawing.Size(121, 47);
+            this.Quit.TabIndex = 1;
+            this.Quit.Text = "Quit";
+            this.Quit.UseVisualStyleBackColor = true;
+            this.Quit.Click += new System.EventHandler(this.Quit_Click);
+            // 
             // HarderFrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,6 +365,7 @@ namespace Fall2020_CSC403_Project
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
+            this.Controls.Add(this.Death);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -308,6 +381,8 @@ namespace Fall2020_CSC403_Project
             this.Controls.Add(this.picWall5);
             this.Controls.Add(this.picEnemyCheeto);
             this.Controls.Add(this.picEnemyPoisonPacket);
+            this.Controls.Add(this.picEnemyMikeTysonsNugget);
+            this.Controls.Add(this.picEnemySusNugget);
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
@@ -320,6 +395,8 @@ namespace Fall2020_CSC403_Project
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyMikeTysonsNugget)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemySusNugget)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
@@ -335,34 +412,42 @@ namespace Fall2020_CSC403_Project
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
+            this.Death.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }
+    }
 
-        #endregion
+    #endregion
 
-        private System.Windows.Forms.PictureBox picPlayer;
-        private System.Windows.Forms.PictureBox picBossKoolAid;
-        private System.Windows.Forms.Label lblInGameTime;
-        private System.Windows.Forms.Timer tmrUpdateInGameTime;
-        private System.Windows.Forms.Timer tmrPlayerMove;
-        private System.Windows.Forms.PictureBox picWall3;
-        private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
-        private System.Windows.Forms.PictureBox picEnemyCheeto;
-        private System.Windows.Forms.PictureBox picWall5;
-        private System.Windows.Forms.PictureBox picWall4;
-        private System.Windows.Forms.PictureBox picWall12;
-        private System.Windows.Forms.PictureBox picWall6;
-        private System.Windows.Forms.PictureBox picWall9;
-        private System.Windows.Forms.PictureBox picWall10;
-        private System.Windows.Forms.PictureBox picWall0;
-        private System.Windows.Forms.PictureBox picWall7;
-        private System.Windows.Forms.PictureBox picWall8;
-        private System.Windows.Forms.PictureBox picWall1;
-        private System.Windows.Forms.PictureBox picWall2;
-        private System.Windows.Forms.PictureBox picWall11;
+    private System.Windows.Forms.PictureBox picPlayer;
+    private System.Windows.Forms.PictureBox picBossKoolAid;
+    private System.Windows.Forms.Label lblInGameTime;
+    private System.Windows.Forms.Timer tmrUpdateInGameTime;
+    private System.Windows.Forms.Timer tmrPlayerMove;
+    private System.Windows.Forms.Timer tmrEnemyCheetoMove;
+    private System.Windows.Forms.Timer tmrEnemyPoisonPacketMove;
+    private System.Windows.Forms.PictureBox picWall3;
+    private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
+    private System.Windows.Forms.PictureBox picEnemyCheeto;
+    private System.Windows.Forms.PictureBox picEnemyMikeTysonsNugget;
+    private System.Windows.Forms.PictureBox picEnemySusNugget;
+    private System.Windows.Forms.PictureBox picWall5;
+    private System.Windows.Forms.PictureBox picWall4;
+    private System.Windows.Forms.PictureBox picWall12;
+    private System.Windows.Forms.PictureBox picWall6;
+    private System.Windows.Forms.PictureBox picWall9;
+    private System.Windows.Forms.PictureBox picWall10;
+    private System.Windows.Forms.PictureBox picWall0;
+    private System.Windows.Forms.PictureBox picWall7;
+    private System.Windows.Forms.PictureBox picWall8;
+    private System.Windows.Forms.PictureBox picWall1;
+    private System.Windows.Forms.PictureBox picWall2;
+    private System.Windows.Forms.PictureBox picWall11;
         private System.Windows.Forms.Timer UpdateEnemyPic;
+        private System.Windows.Forms.GroupBox Death;
+        private System.Windows.Forms.Button Quit;
+        private System.Windows.Forms.Button Restart;
     }
 }
 
