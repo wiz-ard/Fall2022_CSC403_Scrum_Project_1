@@ -1,84 +1,82 @@
 using Fall2020_CSC403_Project.code;
 using System;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
-namespace Fall2020_CSC403_Project
-{
-    public partial class HarderFrmLevel : Form
-    {
-        private HarderPlayer harderplayer;
+namespace Fall2020_CSC403_Project {
+  public partial class FrmLevel : Form {
+    private HarderPlayer harderplayer;
 
-        private Enemy enemyPoisonPacket;
-        private Enemy bossKoolaid;
-        private Enemy enemyCheeto;
-        private Character[] walls;
-        public static bool IsPaused = false;
+    private Enemy enemyPoisonPacket;
+    private Enemy bossKoolaid;
+    private Enemy enemyCheeto;
+    private Enemy enemyMikeTysonsNugget;
+    private Enemy enemySusNugget;
+    private Character[] walls;
+    public static bool IsPaused = false;
+    
+    private DateTime timeBegin;
+    private Stopwatch stopwatch;
+    private FrmBattle frmBattle;
 
-        private Stopwatch stopwatch;
-        private DateTime timeBegin;
-        private HarderFrmBattle harderfrmBattle;
+    public FrmLevel() {
+      InitializeComponent();
+    }
 
-        public HarderFrmLevel()
-        {
-            InitializeComponent();
-        }
+    private void FrmLevel_Load(object sender, EventArgs e) {
+      const int PADDING = 7;
+      const int NUM_WALLS = 13;
 
-        private void FrmLevel_Load(object sender, EventArgs e)
-        {
-            const int PADDING = 7;
-            const int NUM_WALLS = 13;
+      harderplayer = new HarderPlayer(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+      enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+      enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      enemyMikeTysonsNugget = new Enemy(CreatePosition(picEnemyMikeTysonsNugget), CreateCollider(picEnemyMikeTysonsNugget, PADDING));
+      enemySusNugget = new Enemy(CreatePosition(picEnemySusNugget), CreateCollider(picEnemySusNugget, PADDING));
 
-            harderplayer = new HarderPlayer(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
-            enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
-            enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      bossKoolaid.Img = picBossKoolAid.BackgroundImage;
+      enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
+      enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+      enemyMikeTysonsNugget.Img = picEnemyMikeTysonsNugget.BackgroundImage;
+      enemySusNugget.Img = picEnemySusNugget.BackgroundImage;
 
-            bossKoolaid.Img = picBossKoolAid.BackgroundImage;
-            enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
-            enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+      bossKoolaid.Color = Color.Red;
+      enemyPoisonPacket.Color = Color.Green;
+      enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      enemyMikeTysonsNugget.Color = Color.FromArgb(255, 245, 161);
+      enemySusNugget.Color = Color.FromArgb(255, 245, 161);
 
-            bossKoolaid.Color = Color.Red;
-            enemyPoisonPacket.Color = Color.Green;
-            enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      walls = new Character[NUM_WALLS];
+      for (int w = 0; w < NUM_WALLS; w++) {
+        PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
+        walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
+      }
 
-            walls = new Character[NUM_WALLS];
-            for (int w = 0; w < NUM_WALLS; w++)
-            {
-                PictureBox pic = Controls.Find("picWall" + w.ToString(), true)[0] as PictureBox;
-                walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
-            }
+      HarderGame.harderplayer = harderplayer;
+      timeBegin = DateTime.Now;
+      stopwatch = new Stopwatch();
+    }
 
-            HarderGame.harderplayer = harderplayer;
-            timeBegin = DateTime.Now;
-            stopwatch = new Stopwatch();
-        }
+    private Vector2 CreatePosition(PictureBox pic) {
+      return new Vector2(pic.Location.X, pic.Location.Y);
+    }
 
-        private Vector2 CreatePosition(PictureBox pic)
-        {
-            return new Vector2(pic.Location.X, pic.Location.Y);
-        }
+    private Collider CreateCollider(PictureBox pic, int padding) {
+      Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
+      return new Collider(rect);
+    }
 
-        private Collider CreateCollider(PictureBox pic, int padding)
-        {
-            Rectangle rect = new Rectangle(pic.Location, new Size(pic.Size.Width - padding, pic.Size.Height - padding));
-            return new Collider(rect);
-        }
+    private void FrmLevel_KeyUp(object sender, KeyEventArgs e) {
+      harderplayer.ResetMoveSpeed();
+    }
 
-        private void FrmLevel_KeyUp(object sender, KeyEventArgs e)
-        {
-            harderplayer.ResetMoveSpeed();
-        }
-
-        private void tmrUpdateInGameTime_Tick(object sender, EventArgs e)
-        {
+    public void tmrUpdateInGameTime_Tick(object sender, EventArgs e) {
             if (IsPaused == false)
             {
                 stopwatch.Start();
-                //TimeSpan span = DateTime.Now - timeBegin;
-                TimeSpan span = DateTime.Now - timeBegin;
+                TimeSpan span = stopwatch.Elapsed;
                 string time = span.ToString(@"hh\:mm\:ss");
                 lblInGameTime.Text = "Time: " + time.ToString();
             }
@@ -88,37 +86,69 @@ namespace Fall2020_CSC403_Project
             }
         }
 
-        private void tmrPlayerMove_Tick(object sender, EventArgs e)
-        {
-            // move player
-            harderplayer.Move();
-
-            // check collision with walls
-            if (HitAWall(harderplayer))
-            {
-                harderplayer.MoveBack();
+    private void tmrUpdateEnemyPic_Tick(object sender, EventArgs e){
+            if (enemyPoisonPacket.Health <= 0){
+                picEnemyPoisonPacket.Hide();
             }
-
-            // check collision with enemies
-            if (HitAChar(harderplayer, enemyPoisonPacket))
-            {
-                Fight(enemyPoisonPacket);
+            if (bossKoolaid.Health <= 0){
+                picBossKoolAid.Hide();
             }
-            else if (HitAChar(harderplayer, enemyCheeto))
-            {
-                Fight(enemyCheeto);
+            if (enemyCheeto.Health <= 0){
+                picEnemyCheeto.Hide();
             }
-            if (HitAChar(harderplayer, bossKoolaid))
-            {
-                Fight(bossKoolaid);
+            if (enemyMikeTysonsNugget.Health <= 0){
+              picEnemyMikeTysonsNugget.Hide();
             }
-
-            // update player's picture box
-            picPlayer.Location = new Point((int)harderplayer.Position.x, (int)harderplayer.Position.y);
+            if (enemySusNugget.Health <= 0){
+              picEnemySusNugget.Hide();
+            }
+            if (harderplayer.Health <= 0)
+            {
+                picPlayer.Hide();
+                IsPaused = true;
+                Death.Show();
+            }
         }
-        // updates Cheeto picture box
-        private void tmrEnemyCheetoMove_Tick(object sender, EventArgs e)
-        {
+
+    private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+      // move player
+      harderplayer.Move();
+
+      // check collision with walls
+      if (HitAWall(harderplayer)) {
+        harderplayer.MoveBack();
+      }
+
+      // check collision with enemies
+      if (HitAChar(harderplayer, enemyPoisonPacket)) {
+        Fight(enemyPoisonPacket);
+        IsPaused = true;
+      }
+      else if (HitAChar(harderplayer, enemyCheeto)) {
+        Fight(enemyCheeto);
+        IsPaused = true;
+      }
+      else if (HitAChar(harderplayer, bossKoolaid)) {
+        Fight(bossKoolaid);
+        IsPaused = true;
+      }
+      else if (HitAChar(harderplayer, enemyMikeTysonsNugget))
+      {
+          Fight(enemyMikeTysonsNugget);
+          IsPaused = true;
+      }
+      else if (HitAChar(harderplayer, enemySusNugget))
+      {
+          Fight(enemySusNugget);
+          IsPaused = true;
+      }
+
+      // update player's picture box
+      picPlayer.Location = new Point((int)harderplayer.Position.x, (int)harderplayer.Position.y);
+    }
+    // updates Cheeto picture box
+    private void tmrEnemyCheetoMove_Tick(object sender, EventArgs e)
+    {
             if (IsPaused == false)
             {
                 if (enemyCheeto.Health >= 0)
@@ -147,8 +177,9 @@ namespace Fall2020_CSC403_Project
                         enemyCheeto.Counter += 1;
                     }
 
-                    while (HitAChar(enemyCheeto, harderplayer))
+                    while (HitAChar(enemyCheeto, player))
                     {
+                        Fight(enemyCheeto);
                         enemyCheeto.MoveBack();
                         enemyCheeto.ResetMoveSpeed();
                     }
@@ -160,10 +191,10 @@ namespace Fall2020_CSC403_Project
                     picEnemyCheeto.Location = new Point((int)enemyCheeto.Position.x, (int)enemyCheeto.Position.y);
                 }
             }
-        }
+    }
 
-        private void tmrEnemyPoisonPacketMove_Tick(object sender, EventArgs e)
-        {
+    private void tmrEnemyPoisonPacketMove_Tick(object sender, EventArgs e)
+    {
             if (IsPaused == false)
             {
                 if (enemyPoisonPacket.Health >= 0)
@@ -191,8 +222,9 @@ namespace Fall2020_CSC403_Project
                         enemyPoisonPacket.Counter += 1;
                     }
 
-                    while (HitAChar(enemyPoisonPacket, harderplayer))
+                    while (HitAChar(enemyPoisonPacket, player))
                     {
+                        Fight(enemyPoisonPacket);
                         enemyPoisonPacket.MoveBack();
                         enemyPoisonPacket.ResetMoveSpeed();
                     }
@@ -205,43 +237,38 @@ namespace Fall2020_CSC403_Project
                     picEnemyPoisonPacket.Location = new Point((int)enemyPoisonPacket.Position.x, (int)enemyPoisonPacket.Position.y);
                 }
             }
+       
+    }
 
+    private bool HitAWall(Character c) {
+      bool hitAWall = false;
+      for (int w = 0; w < walls.Length; w++) {
+        if (c.Collider.Intersects(walls[w].Collider)) {
+          hitAWall = true;
+          break;
         }
-        private bool HitAWall(Character c)
-        {
-            bool hitAWall = false;
-            for (int w = 0; w < walls.Length; w++)
-            {
-                if (c.Collider.Intersects(walls[w].Collider))
-                {
-                    hitAWall = true;
-                    break;
-                }
-            }
-            return hitAWall;
-        }
+      }
+      return hitAWall;
+    }
 
-        private bool HitAChar(Character you, Character other)
-        {
-            return you.Collider.Intersects(other.Collider);
-        }
+    private bool HitAChar(Character you, Character other) {
+      return you.Collider.Intersects(other.Collider);
+    }
 
-        private void Fight(Enemy enemy)
-        {
-            harderplayer.ResetMoveSpeed();
-            harderplayer.MoveBack();
-            harderfrmBattle = HarderFrmBattle.GetInstance(enemy);
-            harderfrmBattle.Show();
+    private void Fight(Enemy enemy) {
+      IsPaused = true;
+      harderplayer.ResetMoveSpeed();
+      harderplayer.MoveBack();
+      frmBattle = FrmBattle.GetInstance(enemy);
+      frmBattle.Show();
 
-            if (enemy == bossKoolaid)
-            {
-                harderfrmBattle.SetupForBossBattle();
-            }
-        }
+      if (enemy == bossKoolaid) {
+        frmBattle.SetupForBossBattle();
+      }
+    }
 
-        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (IsPaused == false)
+    private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
+        if (IsPaused == false)
             {
                 switch (e.KeyCode)
                 {
@@ -272,17 +299,17 @@ namespace Fall2020_CSC403_Project
                         harderplayer.ResetMoveSpeed();
                         break;
                 }
-            }
+      }
+    }
+
+        private void Quit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
-        private void lblInGameTime_Click(object sender, EventArgs e)
+        private void Restart_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void tmrUpdateEnemyPic_Tick(object sender, EventArgs e)
-        {
-
+            Application.Restart();
         }
     }
 }
