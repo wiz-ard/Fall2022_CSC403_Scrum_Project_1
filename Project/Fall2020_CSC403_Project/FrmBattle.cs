@@ -187,6 +187,7 @@ namespace Fall2020_CSC403_Project {
     private void btnHeal_Click(object sender, EventArgs e) {
         if (player.Health < player.MaxHealth && player.Magic >= 5 && enemy.Health > 0) {
           player.OnHeal(-5);
+          UpdateHealthBars();
         } 
     }
 
