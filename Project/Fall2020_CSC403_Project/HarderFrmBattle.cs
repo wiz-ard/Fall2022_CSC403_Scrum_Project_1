@@ -10,15 +10,10 @@ namespace Fall2020_CSC403_Project {
     public static HarderFrmBattle instance = null;
     private Enemy enemy;
     private HarderPlayer harderplayer;
-    private int start_time;
-    private System.Windows.Forms.Timer tmrbattle_timer;
 
-
-    private HarderFrmBattle() {
-      start_time = 30;
+    private HardFrmBattle() {
       InitializeComponent();
       harderplayer = HarderGame.harderplayer;
-      this.tmrbattle_timer = new System.Windows.Forms.Timer(this.components);
     }
 
     public void Setup() {
@@ -33,10 +28,10 @@ namespace Fall2020_CSC403_Project {
       harderplayer.AttackEvent += EnemyDamage;
       harderplayer.HealEvent += HarderPlayerMagic;
       harderplayer.Strength_UpEvent += HarderPlayerMagic;
-      
+
       // show health
       UpdateHealthBars();
-
+      
       // show magic
       UpdateMagicBars();
     }
@@ -51,7 +46,7 @@ namespace Fall2020_CSC403_Project {
 
       tmrFinalBattle.Enabled = true;
     }
-
+    
     public void SetupForVictoryScreen()
         {
             frmVictory victory = new frmVictory();
@@ -67,7 +62,7 @@ namespace Fall2020_CSC403_Project {
       }
       return instance;
     }
-
+    
     private void battle_time_Tick(object sender,EventArgs e)
         {
             lblbattletime.Text = start_time--.ToString();
@@ -99,7 +94,7 @@ namespace Fall2020_CSC403_Project {
       lblPlayerHealthFull.Text = harderplayer.Health.ToString();
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
-
+    
     private void UpdateMagicBars() {
       float playerMagicPer = harderplayer.Magic / (float)harderplayer.MaxMagic;
 
@@ -109,40 +104,41 @@ namespace Fall2020_CSC403_Project {
       lblPlayerMagicFull.Text = harderplayer.Magic.ToString();
     }
 
-    private void btnAttack_Click(object sender, EventArgs e) {
+    private void btnAttack_Click(object sender, EventArgs e)
+    {
       if (harderplayer.Strength == 2) {
         harderplayer.OnAttack(-4);
-      }
+        }
 
       if (harderplayer.Strength == 5) {
         harderplayer.OnAttack(-3); 
-      }
+        }
 
-      if (enemy.Health > 0) {
-        enemy.OnEnemyAttack(-2);
-      }
+      if (enemy.Health > 0)
+        {
+            enemy.OnEnemyAttack(-2);
+        }
 
-      UpdateHealthBars();
-      if (harderplayer.Health <= 0 || enemy.Health <= 0) {
-        harderplayer.ChangeStrengthBack();
-        instance = null;
-        Close();
-      }
-      if (enemy.Health <= 0 && harderplayer.Health > enemy.Health)
-            {
-                enemy.Collider.DeleteCollider();    
-                SetupForVictoryScreen();
-            }
+        UpdateHealthBars();
+        if (harderplayer.Health <= 0)
+        {
+            harderplayer.ChangeStrengthBack();
+            instance = null;
+            Close();
+            harderplayer.Collider.DeleteCollider();
+        }
         if (enemy.Health <= 0)
         {
+            harderplayer.ChangeStrengthBack();
             instance = null;
             Close();
             enemy.Collider.DeleteCollider();
+            HarderFrmLevel.IsPaused = false;
         }
     }
-
+    
     private void btnHeal_Click(object sender, EventArgs e) {
-        if (harderplayer.Health < 10 && harderplayer.Magic >= 5 && enemy.Health > 0) {
+        if (harderplayer.Health < harderplayer.MaxHealth && harderplayer.Magic >= 5 && enemy.Health > 0) {
           harderplayer.OnHeal(-5);
         } 
     }
@@ -156,18 +152,18 @@ namespace Fall2020_CSC403_Project {
         UpdateMagicBars();
     }
 
-      private void EnemyDamage(int amount) {
+    private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
 
     private void HarderPlayerDamage(int amount) {
       harderplayer.AlterHealth(amount);
     }
-
+    
     private void HarderPlayerMagic(int amount) {
       harderplayer.AlterMagic(amount);
       for (int i=1; i<11; i++) {
-          if (harderplayer.Health < 10) {
+          if (harderplayer.Health < harderplayer.MaxHealth) {
               harderplayer.AlterHealth(1);
               UpdateHealthBars();
           }
@@ -182,11 +178,7 @@ namespace Fall2020_CSC403_Project {
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
-      tmrFinalBattle.Enabled = true;
+      tmrFinalBattle.Enabled = false;
     }
-        private void lblbattletime_Click(object sender, EventArgs e)
-        {
-
-        }
-    }
+  }
 }
