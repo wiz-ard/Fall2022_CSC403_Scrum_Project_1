@@ -30,8 +30,8 @@ namespace Fall2020_CSC403_Project.code {
     public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
       MaxHealth = 20;
       MaxMagic = 20;
-            MaxArmor = 10;
-                Armor = MaxArmor;
+      MaxArmor = 10;
+      Armor = MaxArmor;
       CurrentStrength = 2;
       Strength = CurrentStrength;
       EnemyStrength = 2;
