@@ -100,6 +100,12 @@ namespace Fall2020_CSC403_Project {
             if (enemySusNugget.Health <= 0){
               picEnemySusNugget.Hide();
             }
+            if (player.Health <= 0)
+            {
+                picPlayer.Hide();
+                IsPaused = true;
+                Death.Show();
+            }
         }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
@@ -114,12 +120,15 @@ namespace Fall2020_CSC403_Project {
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
         Fight(enemyPoisonPacket);
+        IsPaused = true;
       }
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
+        IsPaused = true;
       }
       else if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
+        IsPaused = true;
       }
       else if (HitAChar(player, enemyMikeTysonsNugget))
       {
@@ -243,6 +252,7 @@ namespace Fall2020_CSC403_Project {
     }
 
     private void Fight(Enemy enemy) {
+      IsPaused = true;
       player.ResetMoveSpeed();
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
@@ -287,5 +297,15 @@ namespace Fall2020_CSC403_Project {
                 }
       }
     }
-  }
+
+        private void Quit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Restart_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+    }
 }

@@ -31,6 +31,7 @@
             this.Paused = new System.Windows.Forms.Label();
             this.Resume = new System.Windows.Forms.Button();
             this.Quit = new System.Windows.Forms.Button();
+            this.Restart = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Paused
@@ -48,9 +49,9 @@
             // 
             // Resume
             // 
-            this.Resume.Location = new System.Drawing.Point(334, 186);
+            this.Resume.Location = new System.Drawing.Point(334, 171);
             this.Resume.Name = "Resume";
-            this.Resume.Size = new System.Drawing.Size(148, 45);
+            this.Resume.Size = new System.Drawing.Size(148, 51);
             this.Resume.TabIndex = 1;
             this.Resume.Text = "Resume";
             this.Resume.UseVisualStyleBackColor = true;
@@ -58,13 +59,23 @@
             // 
             // Quit
             // 
-            this.Quit.Location = new System.Drawing.Point(334, 287);
+            this.Quit.Location = new System.Drawing.Point(334, 335);
             this.Quit.Name = "Quit";
-            this.Quit.Size = new System.Drawing.Size(148, 45);
+            this.Quit.Size = new System.Drawing.Size(148, 51);
             this.Quit.TabIndex = 2;
             this.Quit.Text = "Quit";
             this.Quit.UseVisualStyleBackColor = true;
             this.Quit.Click += new System.EventHandler(this.QuiteGame);
+            // 
+            // Restart
+            // 
+            this.Restart.Location = new System.Drawing.Point(334, 249);
+            this.Restart.Name = "Restart";
+            this.Restart.Size = new System.Drawing.Size(148, 51);
+            this.Restart.TabIndex = 3;
+            this.Restart.Text = "Restart";
+            this.Restart.UseVisualStyleBackColor = true;
+            this.Restart.Click += new System.EventHandler(this.Restart_Click);
             // 
             // PauseMenu
             // 
@@ -73,6 +84,7 @@
             this.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Restart);
             this.Controls.Add(this.Quit);
             this.Controls.Add(this.Resume);
             this.Controls.Add(this.Paused);
@@ -88,5 +100,6 @@
         private System.Windows.Forms.Label Paused;
         private System.Windows.Forms.Button Resume;
         private System.Windows.Forms.Button Quit;
+        private System.Windows.Forms.Button Restart;
     }
 }
