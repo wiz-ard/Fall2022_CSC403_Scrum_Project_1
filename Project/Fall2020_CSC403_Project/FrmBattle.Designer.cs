@@ -98,7 +98,7 @@
       // 
       this.label1.BackColor = System.Drawing.Color.Black;
       this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-      this.label1.Location = new System.Drawing.Point(70, 59);
+      this.label1.Location = new System.Drawing.Point(70, 29);
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(229, 23);
       this.label1.TabIndex = 4;
@@ -107,7 +107,7 @@
       // 
       this.label2.BackColor = System.Drawing.Color.Black;
       this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-      this.label2.Location = new System.Drawing.Point(515, 59);
+      this.label2.Location = new System.Drawing.Point(515, 29);
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(229, 23);
       this.label2.TabIndex = 5;
