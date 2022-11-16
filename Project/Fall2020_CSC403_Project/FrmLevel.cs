@@ -12,6 +12,8 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
+    private Enemy enemyMikeTysonsNugget;
+    private Enemy enemySusNugget;
     private Character[] walls;
     public static bool IsPaused = false;
 
@@ -30,14 +32,20 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      enemyMikeTysonsNugget = new Enemy(CreatePosition(picEnemyMikeTysonsNugget), CreateCollider(picEnemyMikeTysonsNugget, PADDING));
+      enemySusNugget = new Enemy(CreatePosition(picEnemySusNugget), CreateCollider(picEnemySusNugget, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+      enemyMikeTysonsNugget.Img = picEnemyMikeTysonsNugget.BackgroundImage;
+      enemySusNugget.Img = picEnemySusNugget.BackgroundImage;
 
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      enemyMikeTysonsNugget.Color = Color.FromArgb(255, 245, 161);
+      enemySusNugget.Color = Color.FromArgb(255, 245, 161);
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -86,6 +94,12 @@ namespace Fall2020_CSC403_Project {
             if (enemyCheeto.Health <= 0){
                 picEnemyCheeto.Hide();
             }
+            if (enemyMikeTysonsNugget.Health <= 0){
+              picEnemyMikeTysonsNugget.Hide();
+            }
+            if (enemySusNugget.Health <= 0){
+              picEnemySusNugget.Hide();
+            }
         }
 
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
@@ -104,8 +118,16 @@ namespace Fall2020_CSC403_Project {
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
       }
-      if (HitAChar(player, bossKoolaid)) {
+      else if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
+      }
+      else if (HitAChar(player, enemyMikeTysonsNugget))
+      {
+          Fight(enemyMikeTysonsNugget);
+      }
+      else if (HitAChar(player, enemySusNugget))
+      {
+          Fight(enemySusNugget);
       }
 
       // update player's picture box
@@ -144,6 +166,7 @@ namespace Fall2020_CSC403_Project {
 
                     while (HitAChar(enemyCheeto, player))
                     {
+                        Fight(enemyCheeto);
                         enemyCheeto.MoveBack();
                         enemyCheeto.ResetMoveSpeed();
                     }
@@ -188,6 +211,7 @@ namespace Fall2020_CSC403_Project {
 
                     while (HitAChar(enemyPoisonPacket, player))
                     {
+                        Fight(enemyPoisonPacket);
                         enemyPoisonPacket.MoveBack();
                         enemyPoisonPacket.ResetMoveSpeed();
                     }
