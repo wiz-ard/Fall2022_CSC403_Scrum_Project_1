@@ -24,8 +24,11 @@
     /// </summary>
     private void InitializeComponent() {
       this.components = new System.ComponentModel.Container();
+      this.btnStrength_Up = new System.Windows.Forms.Button();
       this.btnAttack = new System.Windows.Forms.Button();
+      this.btnHeal = new System.Windows.Forms.Button();
       this.lblPlayerHealthFull = new System.Windows.Forms.Label();
+      this.lblPlayerMagicFull = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
       this.lblEnemyHealthFull = new System.Windows.Forms.Label();
@@ -41,23 +44,55 @@
       // btnAttack
       // 
       this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.btnAttack.Location = new System.Drawing.Point(127, 422);
+      this.btnAttack.Location = new System.Drawing.Point(100, 422);
       this.btnAttack.Name = "btnAttack";
-      this.btnAttack.Size = new System.Drawing.Size(128, 43);
+      this.btnAttack.Size = new System.Drawing.Size(180, 43);
       this.btnAttack.TabIndex = 2;
       this.btnAttack.Text = "Attack";
       this.btnAttack.UseVisualStyleBackColor = true;
       this.btnAttack.Click += new System.EventHandler(this.btnAttack_Click);
       // 
+      // btnHeal
+      // 
+      this.btnHeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnHeal.Location = new System.Drawing.Point(100, 472);
+      this.btnHeal.Name = "btnHeal";
+      this.btnHeal.Size = new System.Drawing.Size(180, 43);
+      this.btnHeal.TabIndex = 2;
+      this.btnHeal.Text = "Heal (5MP)";
+      this.btnHeal.UseVisualStyleBackColor = true;
+      this.btnHeal.Click += new System.EventHandler(this.btnHeal_Click);
+      // 
+      // btnStrength_Up
+      // 
+      this.btnStrength_Up.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnStrength_Up.Location = new System.Drawing.Point(100, 522);
+      this.btnStrength_Up.Name = "btnStrength_Up";
+      this.btnStrength_Up.Size = new System.Drawing.Size(180, 43);
+      this.btnStrength_Up.TabIndex = 2;
+      this.btnStrength_Up.Text = "Strenth Up (10MP)";
+      this.btnStrength_Up.UseVisualStyleBackColor = true;
+      this.btnStrength_Up.Click += new System.EventHandler(this.btnStrength_Up_Click);
+      // 
       // lblPlayerHealthFull
       // 
-      this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Blue;
+      this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Red;
       this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
       this.lblPlayerHealthFull.Location = new System.Drawing.Point(71, 60);
       this.lblPlayerHealthFull.Name = "lblPlayerHealthFull";
       this.lblPlayerHealthFull.Size = new System.Drawing.Size(226, 20);
       this.lblPlayerHealthFull.TabIndex = 3;
+      //
+      // lblPlayerMagicFull
+      // 
+      this.lblPlayerMagicFull.BackColor = System.Drawing.Color.Blue;
+      this.lblPlayerMagicFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblPlayerMagicFull.ForeColor = System.Drawing.Color.White;
+      this.lblPlayerMagicFull.Location = new System.Drawing.Point(71, 60);
+      this.lblPlayerMagicFull.Name = "lblPlayerMagicFull";
+      this.lblPlayerMagicFull.Size = new System.Drawing.Size(226, 20);
+      this.lblPlayerMagicFull.TabIndex = 3;
       // 
       // label1
       // 
@@ -79,7 +114,7 @@
       // 
       // lblEnemyHealthFull
       // 
-      this.lblEnemyHealthFull.BackColor = System.Drawing.Color.Blue;
+      this.lblEnemyHealthFull.BackColor = System.Drawing.Color.Red;
       this.lblEnemyHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblEnemyHealthFull.ForeColor = System.Drawing.Color.White;
       this.lblEnemyHealthFull.Location = new System.Drawing.Point(516, 60);
@@ -138,8 +173,11 @@
       this.Controls.Add(this.lblEnemyHealthFull);
       this.Controls.Add(this.label2);
       this.Controls.Add(this.lblPlayerHealthFull);
+      this.Controls.Add(this.lblPlayerMagicFull);
       this.Controls.Add(this.label1);
       this.Controls.Add(this.btnAttack);
+      this.Controls.Add(this.btnHeal);
+      this.Controls.Add(this.btnStrength_Up);
       this.Controls.Add(this.picEnemy);
       this.Controls.Add(this.picPlayer);
       this.DoubleBuffered = true;
@@ -158,7 +196,10 @@
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Button btnAttack;
+    private System.Windows.Forms.Button btnHeal;
+    private System.Windows.Forms.Button btnStrength_Up; 
     private System.Windows.Forms.Label lblPlayerHealthFull;
+    private System.Windows.Forms.Label lblPlayerMagicFull;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label lblEnemyHealthFull;
