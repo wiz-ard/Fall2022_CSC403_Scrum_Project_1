@@ -58,10 +58,10 @@ namespace Fall2020_CSC403_Project
             // btnStrength_Up
             // 
             this.btnStrength_Up.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStrength_Up.Location = new System.Drawing.Point(200, 1004);
-            this.btnStrength_Up.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnStrength_Up.Location = new System.Drawing.Point(133, 643);
+            this.btnStrength_Up.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStrength_Up.Name = "btnStrength_Up";
-            this.btnStrength_Up.Size = new System.Drawing.Size(360, 83);
+            this.btnStrength_Up.Size = new System.Drawing.Size(240, 53);
             this.btnStrength_Up.TabIndex = 2;
             this.btnStrength_Up.Text = "Strenth Up (10MP)";
             this.btnStrength_Up.UseVisualStyleBackColor = true;
@@ -70,10 +70,10 @@ namespace Fall2020_CSC403_Project
             // btnAttack
             // 
             this.btnAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttack.Location = new System.Drawing.Point(200, 812);
-            this.btnAttack.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnAttack.Location = new System.Drawing.Point(133, 520);
+            this.btnAttack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAttack.Name = "btnAttack";
-            this.btnAttack.Size = new System.Drawing.Size(360, 83);
+            this.btnAttack.Size = new System.Drawing.Size(240, 53);
             this.btnAttack.TabIndex = 2;
             this.btnAttack.Text = "Attack";
             this.btnAttack.UseVisualStyleBackColor = true;
@@ -82,10 +82,10 @@ namespace Fall2020_CSC403_Project
             // btnHeal
             // 
             this.btnHeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHeal.Location = new System.Drawing.Point(200, 908);
-            this.btnHeal.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnHeal.Location = new System.Drawing.Point(133, 581);
+            this.btnHeal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHeal.Name = "btnHeal";
-            this.btnHeal.Size = new System.Drawing.Size(360, 83);
+            this.btnHeal.Size = new System.Drawing.Size(240, 53);
             this.btnHeal.TabIndex = 2;
             this.btnHeal.Text = "Heal (5MP)";
             this.btnHeal.UseVisualStyleBackColor = true;
@@ -96,10 +96,10 @@ namespace Fall2020_CSC403_Project
             this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Red;
             this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
-            this.lblPlayerHealthFull.Location = new System.Drawing.Point(142, 58);
-            this.lblPlayerHealthFull.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblPlayerHealthFull.Location = new System.Drawing.Point(95, 37);
+            this.lblPlayerHealthFull.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayerHealthFull.Name = "lblPlayerHealthFull";
-            this.lblPlayerHealthFull.Size = new System.Drawing.Size(452, 38);
+            this.lblPlayerHealthFull.Size = new System.Drawing.Size(301, 24);
             this.lblPlayerHealthFull.TabIndex = 3;
             // 
             // lblPlayerMagicFull
@@ -107,30 +107,30 @@ namespace Fall2020_CSC403_Project
             this.lblPlayerMagicFull.BackColor = System.Drawing.Color.Blue;
             this.lblPlayerMagicFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerMagicFull.ForeColor = System.Drawing.Color.White;
-            this.lblPlayerMagicFull.Location = new System.Drawing.Point(142, 115);
-            this.lblPlayerMagicFull.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblPlayerMagicFull.Location = new System.Drawing.Point(95, 74);
+            this.lblPlayerMagicFull.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayerMagicFull.Name = "lblPlayerMagicFull";
-            this.lblPlayerMagicFull.Size = new System.Drawing.Size(452, 38);
+            this.lblPlayerMagicFull.Size = new System.Drawing.Size(301, 24);
             this.lblPlayerMagicFull.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(140, 56);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(93, 36);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(458, 44);
+            this.label1.Size = new System.Drawing.Size(305, 28);
             this.label1.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(1030, 56);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(687, 36);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(458, 44);
+            this.label2.Size = new System.Drawing.Size(305, 28);
             this.label2.TabIndex = 5;
             // 
             // lblEnemyHealthFull
@@ -138,10 +138,10 @@ namespace Fall2020_CSC403_Project
             this.lblEnemyHealthFull.BackColor = System.Drawing.Color.Red;
             this.lblEnemyHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnemyHealthFull.ForeColor = System.Drawing.Color.White;
-            this.lblEnemyHealthFull.Location = new System.Drawing.Point(1032, 58);
-            this.lblEnemyHealthFull.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblEnemyHealthFull.Location = new System.Drawing.Point(688, 37);
+            this.lblEnemyHealthFull.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEnemyHealthFull.Name = "lblEnemyHealthFull";
-            this.lblEnemyHealthFull.Size = new System.Drawing.Size(452, 38);
+            this.lblEnemyHealthFull.Size = new System.Drawing.Size(301, 24);
             this.lblEnemyHealthFull.TabIndex = 6;
             // 
             // label3
@@ -149,20 +149,20 @@ namespace Fall2020_CSC403_Project
             this.label3.BackColor = System.Drawing.Color.Yellow;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(146, 9);
-            this.label3.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.label3.Location = new System.Drawing.Point(97, 6);
+            this.label3.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(452, 38);
+            this.label3.Size = new System.Drawing.Size(301, 24);
             this.label3.TabIndex = 8;
             // 
             // picBossBattle
             // 
             this.picBossBattle.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.battle_screen;
             this.picBossBattle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBossBattle.Location = new System.Drawing.Point(1560, 1083);
-            this.picBossBattle.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.picBossBattle.Location = new System.Drawing.Point(1040, 693);
+            this.picBossBattle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picBossBattle.Name = "picBossBattle";
-            this.picBossBattle.Size = new System.Drawing.Size(60, 54);
+            this.picBossBattle.Size = new System.Drawing.Size(40, 35);
             this.picBossBattle.TabIndex = 7;
             this.picBossBattle.TabStop = false;
             this.picBossBattle.Visible = false;
@@ -173,10 +173,10 @@ namespace Fall2020_CSC403_Project
             this.picEnemy.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_koolaid;
             this.picEnemy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemy.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picEnemy.Location = new System.Drawing.Point(1030, 188);
-            this.picEnemy.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.picEnemy.Location = new System.Drawing.Point(687, 120);
+            this.picEnemy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picEnemy.Name = "picEnemy";
-            this.picEnemy.Size = new System.Drawing.Size(454, 510);
+            this.picEnemy.Size = new System.Drawing.Size(304, 328);
             this.picEnemy.TabIndex = 1;
             this.picEnemy.TabStop = false;
             // 
@@ -186,10 +186,10 @@ namespace Fall2020_CSC403_Project
             this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picPlayer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picPlayer.Location = new System.Drawing.Point(140, 188);
-            this.picPlayer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.picPlayer.Location = new System.Drawing.Point(93, 120);
+            this.picPlayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picPlayer.Name = "picPlayer";
-            this.picPlayer.Size = new System.Drawing.Size(454, 510);
+            this.picPlayer.Size = new System.Drawing.Size(304, 328);
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
@@ -198,10 +198,10 @@ namespace Fall2020_CSC403_Project
             this.picVictory.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Victory_image;
             this.picVictory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picVictory.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picVictory.Location = new System.Drawing.Point(2164, 1658);
-            this.picVictory.Margin = new System.Windows.Forms.Padding(20, 17, 20, 17);
+            this.picVictory.Location = new System.Drawing.Point(1443, 1061);
+            this.picVictory.Margin = new System.Windows.Forms.Padding(13, 11, 13, 11);
             this.picVictory.Name = "picVictory";
-            this.picVictory.Size = new System.Drawing.Size(762, 612);
+            this.picVictory.Size = new System.Drawing.Size(509, 393);
             this.picVictory.TabIndex = 7;
             this.picVictory.TabStop = false;
             this.picVictory.Visible = false;
@@ -212,10 +212,10 @@ namespace Fall2020_CSC403_Project
             this.lblbattletime.BackColor = System.Drawing.Color.Red;
             this.lblbattletime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblbattletime.ForeColor = System.Drawing.Color.White;
-            this.lblbattletime.Location = new System.Drawing.Point(805, 48);
-            this.lblbattletime.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.lblbattletime.Location = new System.Drawing.Point(537, 31);
+            this.lblbattletime.Margin = new System.Windows.Forms.Padding(13, 0, 13, 0);
             this.lblbattletime.Name = "lblbattletime";
-            this.lblbattletime.Size = new System.Drawing.Size(95, 36);
+            this.lblbattletime.Size = new System.Drawing.Size(60, 24);
             this.lblbattletime.TabIndex = 2;
             this.lblbattletime.Text = "label2";
             // 
@@ -232,11 +232,11 @@ namespace Fall2020_CSC403_Project
             // 
             // FrmBattle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1644, 1160);
+            this.ClientSize = new System.Drawing.Size(1091, 735);
             this.Controls.Add(this.picBossBattle);
             this.Controls.Add(this.lblEnemyHealthFull);
             this.Controls.Add(this.label2);
@@ -252,7 +252,7 @@ namespace Fall2020_CSC403_Project
             this.Controls.Add(this.lblbattletime);
             this.Controls.Add(this.label3);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fight!";
