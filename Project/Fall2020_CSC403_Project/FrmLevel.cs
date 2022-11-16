@@ -16,7 +16,8 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemySusNugget;
     private Character[] walls;
     public static bool IsPaused = false;
-
+    
+    private DateTime timeBegin;
     private Stopwatch stopwatch;
     private FrmBattle frmBattle;
 
@@ -54,6 +55,7 @@ namespace Fall2020_CSC403_Project {
       }
 
       Game.player = player;
+      timeBegin = DateTime.Now;
       stopwatch = new Stopwatch();
     }
 
@@ -133,10 +135,12 @@ namespace Fall2020_CSC403_Project {
       else if (HitAChar(player, enemyMikeTysonsNugget))
       {
           Fight(enemyMikeTysonsNugget);
+          IsPaused = true;
       }
       else if (HitAChar(player, enemySusNugget))
       {
           Fight(enemySusNugget);
+          IsPaused = true;
       }
 
       // update player's picture box
