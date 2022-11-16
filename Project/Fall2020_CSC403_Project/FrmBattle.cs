@@ -77,7 +77,8 @@ namespace Fall2020_CSC403_Project {
                 instance = null;
                 Close();
                 player.Collider.DeleteCollider();
-                FrmLevel.IsPaused = false;
+                DefeatScreen defeatscreen = new DefeatScreen();
+                defeatscreen.Show();
             }
             if (enemy.Health <= 0)
             {
