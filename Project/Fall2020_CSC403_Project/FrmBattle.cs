@@ -132,7 +132,13 @@ namespace Fall2020_CSC403_Project {
             {
                     SetupForVictoryScreen();
             }
-    }
+            if (enemy.Health <= 0)
+            {
+                instance = null;
+                Close();
+                enemy.Collider.DeleteCollider();
+            }
+        }
 
     private void btnHeal_Click(object sender, EventArgs e) {
         if (player.Health < player.MaxHealth && player.Magic >= 5 && enemy.Health > 0) {
