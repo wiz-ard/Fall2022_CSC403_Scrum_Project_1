@@ -32,6 +32,8 @@
             this.tmrEnemyPoisonPacketMove = new System.Windows.Forms.Timer(this.components);
             this.picEnemyCheeto = new System.Windows.Forms.PictureBox();
             this.picEnemyPoisonPacket = new System.Windows.Forms.PictureBox();
+            this.picEnemyMikeTysonsNugget = new System.Windows.Forms.PictureBox();
+            this.picEnemySusNugget = new System.Windows.Forms.PictureBox();
             this.picWall3 = new System.Windows.Forms.PictureBox();
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
@@ -50,6 +52,8 @@
             this.UpdateEnemyPic = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyMikeTysonsNugget)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemySusNugget)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -123,6 +127,28 @@
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(63, 96);
             this.picEnemyPoisonPacket.TabIndex = 4;
             this.picEnemyPoisonPacket.TabStop = false;
+            //
+            // picEnemyMikeTysonsNugget
+            //
+            this.picEnemyMikeTysonsNugget.BackColor = System.Drawing.Color.Transparent;
+            this.picEnemyMikeTysonsNugget.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_miketysonsnugget;
+            this.picEnemyMikeTysonsNugget.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEnemyMikeTysonsNugget.Location = new System.Drawing.Point(500, 80);
+            this.picEnemyMikeTysonsNugget.Name = "picEnemyMikeTysonsNugget";
+            this.picEnemyMikeTysonsNugget.Size = new System.Drawing.Size(150, 150);
+            this.picEnemyMikeTysonsNugget.TabIndex = 18;
+            this.picEnemyMikeTysonsNugget.TabStop = false;
+            //
+            // picEnemySusNugget
+            //
+            this.picEnemySusNugget.BackColor = System.Drawing.Color.Transparent;
+            this.picEnemySusNugget.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_susnugget;
+            this.picEnemySusNugget.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEnemySusNugget.Location = new System.Drawing.Point(400, 510);
+            this.picEnemySusNugget.Name = "picEnemySusNugget";
+            this.picEnemySusNugget.Size = new System.Drawing.Size(150, 150);
+            this.picEnemySusNugget.TabIndex = 19;
+            this.picEnemySusNugget.TabStop = false;
             // 
             // picWall3
             // 
@@ -316,6 +342,8 @@
             this.Controls.Add(this.picWall5);
             this.Controls.Add(this.picEnemyCheeto);
             this.Controls.Add(this.picEnemyPoisonPacket);
+            this.Controls.Add(this.picEnemyMikeTysonsNugget);
+            this.Controls.Add(this.picEnemySusNugget);
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
@@ -328,6 +356,8 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemyMikeTysonsNugget)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnemySusNugget)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
@@ -360,6 +390,8 @@
     private System.Windows.Forms.PictureBox picWall3;
     private System.Windows.Forms.PictureBox picEnemyPoisonPacket;
     private System.Windows.Forms.PictureBox picEnemyCheeto;
+    private System.Windows.Forms.PictureBox picEnemyMikeTysonsNugget;
+    private System.Windows.Forms.PictureBox picEnemySusNugget;
     private System.Windows.Forms.PictureBox picWall5;
     private System.Windows.Forms.PictureBox picWall4;
     private System.Windows.Forms.PictureBox picWall12;
