@@ -10,15 +10,10 @@ namespace Fall2020_CSC403_Project {
     public static HardFrmBattle instance = null;
     private Enemy enemy;
     private HardPlayer hardplayer;
-    private int start_time;
-    private System.Windows.Forms.Timer tmrbattle_timer;
-
 
     private HardFrmBattle() {
-      start_time = 30;
       InitializeComponent();
       hardplayer = HardGame.hardplayer;
-      this.tmrbattle_timer = new System.Windows.Forms.Timer(this.components);
     }
 
     public void Setup() {
@@ -33,10 +28,10 @@ namespace Fall2020_CSC403_Project {
       hardplayer.AttackEvent += EnemyDamage;
       hardplayer.HealEvent += HardPlayerMagic;
       hardplayer.Strength_UpEvent += HardPlayerMagic;
-      
+
       // show health
       UpdateHealthBars();
-
+      
       // show magic
       UpdateMagicBars();
     }
@@ -51,7 +46,7 @@ namespace Fall2020_CSC403_Project {
 
       tmrFinalBattle.Enabled = true;
     }
-
+    
     public void SetupForVictoryScreen()
         {
             frmVictory victory = new frmVictory();
@@ -67,7 +62,7 @@ namespace Fall2020_CSC403_Project {
       }
       return instance;
     }
-
+    
     private void battle_time_Tick(object sender,EventArgs e)
         {
             lblbattletime.Text = start_time--.ToString();
@@ -99,7 +94,7 @@ namespace Fall2020_CSC403_Project {
       lblPlayerHealthFull.Text = hardplayer.Health.ToString();
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
-
+    
     private void UpdateMagicBars() {
       float playerMagicPer = hardplayer.Magic / (float)hardplayer.MaxMagic;
 
@@ -109,40 +104,41 @@ namespace Fall2020_CSC403_Project {
       lblPlayerMagicFull.Text = hardplayer.Magic.ToString();
     }
 
-    private void btnAttack_Click(object sender, EventArgs e) {
+    private void btnAttack_Click(object sender, EventArgs e)
+    {
       if (hardplayer.Strength == 2) {
         hardplayer.OnAttack(-4);
-      }
+        }
 
       if (hardplayer.Strength == 5) {
         hardplayer.OnAttack(-3); 
-      }
+        }
 
-      if (enemy.Health > 0) {
-        enemy.OnEnemyAttack(-2);
-      }
+      if (enemy.Health > 0)
+        {
+            enemy.OnEnemyAttack(-2);
+        }
 
-      UpdateHealthBars();
-      if (hardplayer.Health <= 0 || enemy.Health <= 0) {
-        hardplayer.ChangeStrengthBack();
-        instance = null;
-        Close();
-      }
-      if (enemy.Health <= 0 && hardplayer.Health > enemy.Health)
-            {
-                enemy.Collider.DeleteCollider();    
-                SetupForVictoryScreen();
-            }
+        UpdateHealthBars();
+        if (hardplayer.Health <= 0)
+        {
+            hardplayer.ChangeStrengthBack();
+            instance = null;
+            Close();
+            hardplayer.Collider.DeleteCollider();
+        }
         if (enemy.Health <= 0)
         {
+            hardplayer.ChangeStrengthBack();
             instance = null;
             Close();
             enemy.Collider.DeleteCollider();
+            HardFrmLevel.IsPaused = false;
         }
     }
-
+    
     private void btnHeal_Click(object sender, EventArgs e) {
-        if (hardplayer.Health < 15 && hardplayer.Magic >= 5 && enemy.Health > 0) {
+        if (hardplayer.Health < hardplayer.MaxHealth && hardplayer.Magic >= 5 && enemy.Health > 0) {
           hardplayer.OnHeal(-5);
         } 
     }
@@ -156,18 +152,18 @@ namespace Fall2020_CSC403_Project {
         UpdateMagicBars();
     }
 
-      private void EnemyDamage(int amount) {
+    private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
 
     private void HardPlayerDamage(int amount) {
       hardplayer.AlterHealth(amount);
     }
-
+    
     private void HardPlayerMagic(int amount) {
       hardplayer.AlterMagic(amount);
       for (int i=1; i<11; i++) {
-          if (hardplayer.Health < 15) {
+          if (hardplayer.Health < hardplayer.MaxHealth) {
               hardplayer.AlterHealth(1);
               UpdateHealthBars();
           }
@@ -182,11 +178,7 @@ namespace Fall2020_CSC403_Project {
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
-      tmrFinalBattle.Enabled = true;
+      tmrFinalBattle.Enabled = false;
     }
-        private void lblbattletime_Click(object sender, EventArgs e)
-        {
-
-        }
-    }
+  }
 }
