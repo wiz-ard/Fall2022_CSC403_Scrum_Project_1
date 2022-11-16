@@ -150,7 +150,7 @@
             this.picEnemySusNugget.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemySusNugget.Location = new System.Drawing.Point(400, 510);
             this.picEnemySusNugget.Name = "picEnemySusNugget";
-            this.picEnemySusNugget.Size = new System.Drawing.Size(150, 150);
+            this.picEnemySusNugget.Size = new System.Drawing.Size(180, 150);
             this.picEnemySusNugget.TabIndex = 19;
             this.picEnemySusNugget.TabStop = false;
             // 
