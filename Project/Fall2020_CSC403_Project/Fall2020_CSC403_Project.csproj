@@ -58,42 +58,6 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmStartMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmStartMenu.designer.cs">
-      <DependentUpon>FrmStartMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmVictory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmVictory.designer.cs">
-      <DependentUpon>frmVictory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HarderFrmBattle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HarderFrmBattle.designer.cs">
-      <DependentUpon>HarderFrmBattle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HarderFrmLevel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HarderFrmLevel.designer.cs">
-      <DependentUpon>HarderFrmLevel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HardFrmBattle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HardFrmBattle.designer.cs">
-      <DependentUpon>HardFrmBattle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HardFrmLevel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HardFrmLevel.designer.cs">
-      <DependentUpon>HardFrmLevel.cs</DependentUpon>
-    </Compile>
     <Compile Include="PauseMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,30 +72,24 @@
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmStartMenu.resx">
-      <DependentUpon>FrmStartMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmVictory.resx">
-      <DependentUpon>frmVictory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HarderFrmBattle.resx">
-      <DependentUpon>HarderFrmBattle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HardFrmBattle.resx">
-      <DependentUpon>HardFrmBattle.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PauseMenu.resx">
       <DependentUpon>PauseMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -171,9 +129,6 @@
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Properties\Victory image.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -49,12 +49,6 @@
     <Compile Include="Collider.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="HardBattleCharacter.cs" />
-    <Compile Include="HarderBattleCharacter.cs" />
-    <Compile Include="HarderGame.cs" />
-    <Compile Include="HarderPlayer.cs" />
-    <Compile Include="HardGame.cs" />
-    <Compile Include="HardPlayer.cs" />
     <Compile Include="NPC.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
