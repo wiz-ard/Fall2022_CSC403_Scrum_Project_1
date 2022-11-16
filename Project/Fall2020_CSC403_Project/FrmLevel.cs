@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
@@ -16,6 +17,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemySusNugget;
     private Character[] walls;
     public static bool IsPaused = false;
+    private Armor armor;
 
     private Stopwatch stopwatch;
     private FrmBattle frmBattle;
@@ -34,6 +36,7 @@ namespace Fall2020_CSC403_Project {
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
       enemyMikeTysonsNugget = new Enemy(CreatePosition(picEnemyMikeTysonsNugget), CreateCollider(picEnemyMikeTysonsNugget, PADDING));
       enemySusNugget = new Enemy(CreatePosition(picEnemySusNugget), CreateCollider(picEnemySusNugget, PADDING));
+      armor = new Armor(CreatePosition(armorPickup), CreateCollider(armorPickup, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -138,9 +141,15 @@ namespace Fall2020_CSC403_Project {
       {
           Fight(enemySusNugget);
       }
-
-      // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            if (HitAChar(player, armor))
+            {
+                //player.Armor += 5;
+                //player.MaxArmor = 10;
+                applyArmor();
+                armorPickup.Hide();
+            }
+            // update player's picture box
+            picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
     // updates Cheeto picture box
     private void tmrEnemyCheetoMove_Tick(object sender, EventArgs e)
@@ -189,7 +198,18 @@ namespace Fall2020_CSC403_Project {
             }
     }
 
-    private void tmrEnemyPoisonPacketMove_Tick(object sender, EventArgs e)
+        void applyArmor()
+        {
+
+            if (player.Armor < 10)
+            {
+                player.AlterShield(4);
+            }
+
+
+        }
+
+        private void tmrEnemyPoisonPacketMove_Tick(object sender, EventArgs e)
     {
             if (IsPaused == false)
             {
@@ -258,10 +278,11 @@ namespace Fall2020_CSC403_Project {
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
 
-      if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
-      }
-    }
+            if (enemy == bossKoolaid)
+            {
+                frmBattle.SetupForBossBattle();
+            }
+        }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
         if (IsPaused == false)

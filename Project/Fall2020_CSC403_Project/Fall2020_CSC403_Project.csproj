@@ -58,6 +58,18 @@
     <Compile Include="FrmLevel.Designer.cs">
       <DependentUpon>FrmLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmStartMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStartMenu.designer.cs">
+      <DependentUpon>FrmStartMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVictory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVictory.designer.cs">
+      <DependentUpon>frmVictory.cs</DependentUpon>
+    </Compile>
     <Compile Include="PauseMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +83,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStartMenu.resx">
+      <DependentUpon>FrmStartMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVictory.resx">
+      <DependentUpon>frmVictory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PauseMenu.resx">
       <DependentUpon>PauseMenu.cs</DependentUpon>
@@ -122,13 +140,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="code\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyGameLibrary\MyGameLibrary.csproj">
       <Project>{F1E60F80-1868-4FE5-991B-FDDCFAF9B16B}</Project>
       <Name>MyGameLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cropped Shield.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Victory image.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\You Died.png" />

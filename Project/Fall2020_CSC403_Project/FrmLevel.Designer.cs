@@ -27,6 +27,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLevel));
             this.lblInGameTime = new System.Windows.Forms.Label();
             this.tmrUpdateInGameTime = new System.Windows.Forms.Timer(this.components);
+            this.lblPlayerMagicFull = new System.Windows.Forms.Label();
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
             this.tmrEnemyCheetoMove = new System.Windows.Forms.Timer(this.components);
             this.tmrEnemyPoisonPacketMove = new System.Windows.Forms.Timer(this.components);
@@ -49,10 +50,11 @@
             this.picWall1 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
+            this.armorPickup = new System.Windows.Forms.PictureBox();
             this.UpdateEnemyPic = new System.Windows.Forms.Timer(this.components);
             this.Death = new System.Windows.Forms.GroupBox();
-            this.Restart = new System.Windows.Forms.Button();
             this.Quit = new System.Windows.Forms.Button();
+            this.Restart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemyMikeTysonsNugget)).BeginInit();
@@ -72,6 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.armorPickup)).BeginInit();
             this.Death.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +94,13 @@
             // 
             this.tmrUpdateInGameTime.Enabled = true;
             this.tmrUpdateInGameTime.Tick += new System.EventHandler(this.tmrUpdateInGameTime_Tick);
+            // 
+            // lblPlayerMagicFull
+            // 
+            this.lblPlayerMagicFull.Location = new System.Drawing.Point(0, 0);
+            this.lblPlayerMagicFull.Name = "lblPlayerMagicFull";
+            this.lblPlayerMagicFull.Size = new System.Drawing.Size(100, 23);
+            this.lblPlayerMagicFull.TabIndex = 21;
             // 
             // tmrPlayerMove
             // 
@@ -319,6 +329,19 @@
             this.picWall11.TabIndex = 17;
             this.picWall11.TabStop = false;
             // 
+            // armorPickup
+            // 
+            this.armorPickup.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.armorPickup.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Cropped_Shield;
+            this.armorPickup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.armorPickup.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.armorPickup.Location = new System.Drawing.Point(110, 300);
+            this.armorPickup.Margin = new System.Windows.Forms.Padding(6);
+            this.armorPickup.Name = "armorPickup";
+            this.armorPickup.Size = new System.Drawing.Size(74, 66);
+            this.armorPickup.TabIndex = 1;
+            this.armorPickup.TabStop = false;
+            // 
             // UpdateEnemyPic
             // 
             this.UpdateEnemyPic.Enabled = true;
@@ -330,23 +353,13 @@
             this.Death.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Death.Controls.Add(this.Quit);
             this.Death.Controls.Add(this.Restart);
-            this.Death.Location = new System.Drawing.Point(2, 1);
+            this.Death.Location = new System.Drawing.Point(3, 1);
             this.Death.Name = "Death";
             this.Death.Size = new System.Drawing.Size(1173, 722);
             this.Death.TabIndex = 20;
             this.Death.TabStop = false;
             this.Death.Text = "D";
             this.Death.Visible = false;
-            // 
-            // Restart
-            // 
-            this.Restart.Location = new System.Drawing.Point(514, 509);
-            this.Restart.Name = "Restart";
-            this.Restart.Size = new System.Drawing.Size(121, 51);
-            this.Restart.TabIndex = 0;
-            this.Restart.Text = "Restart";
-            this.Restart.UseVisualStyleBackColor = true;
-            this.Restart.Click += new System.EventHandler(this.Restart_Click);
             // 
             // Quit
             // 
@@ -357,6 +370,16 @@
             this.Quit.Text = "Quit";
             this.Quit.UseVisualStyleBackColor = true;
             this.Quit.Click += new System.EventHandler(this.Quit_Click);
+            // 
+            // Restart
+            // 
+            this.Restart.Location = new System.Drawing.Point(514, 509);
+            this.Restart.Name = "Restart";
+            this.Restart.Size = new System.Drawing.Size(121, 51);
+            this.Restart.TabIndex = 0;
+            this.Restart.Text = "Restart";
+            this.Restart.UseVisualStyleBackColor = true;
+            this.Restart.Click += new System.EventHandler(this.Restart_Click);
             // 
             // FrmLevel
             // 
@@ -371,6 +394,7 @@
             this.Controls.Add(this.picWall8);
             this.Controls.Add(this.picWall7);
             this.Controls.Add(this.lblInGameTime);
+            this.Controls.Add(this.lblPlayerMagicFull);
             this.Controls.Add(this.picWall1);
             this.Controls.Add(this.picWall0);
             this.Controls.Add(this.picWall10);
@@ -386,6 +410,7 @@
             this.Controls.Add(this.picWall3);
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
+            this.Controls.Add(this.armorPickup);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -412,14 +437,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWall1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.armorPickup)).EndInit();
             this.Death.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
     }
 
-    #endregion
+        #endregion
 
+    private System.Windows.Forms.PictureBox armorPickup;
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picBossKoolAid;
     private System.Windows.Forms.Label lblInGameTime;
@@ -448,6 +475,7 @@
         private System.Windows.Forms.GroupBox Death;
         private System.Windows.Forms.Button Quit;
         private System.Windows.Forms.Button Restart;
+        private System.Windows.Forms.Label lblPlayerMagicFull;
     }
 }
 

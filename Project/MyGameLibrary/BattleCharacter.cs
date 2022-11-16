@@ -15,6 +15,11 @@ namespace Fall2020_CSC403_Project.code {
     public int CurrentStrength { get; private set; }
     public int Strength { get; private set; }
     public int EnemyStrength { get; private set; }
+    public int Armor { get; private set; }
+
+    public int MaxArmor { get; private set; }
+
+        private float strength;
 
     public event Action<int> AttackEvent;
 
@@ -25,6 +30,8 @@ namespace Fall2020_CSC403_Project.code {
     public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
       MaxHealth = 20;
       MaxMagic = 20;
+      MaxArmor = 10;
+      Armor = MaxArmor;
       CurrentStrength = 2;
       Strength = CurrentStrength;
       EnemyStrength = 2;
@@ -68,6 +75,11 @@ namespace Fall2020_CSC403_Project.code {
     public void ChangeStrengthBack()
         {
             Strength = 2;
+        }
+
+    public void AlterShield(int amount)
+        {
+            Armor += amount;
         }
   }
 }
