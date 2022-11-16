@@ -79,7 +79,7 @@
       this.lblPlayerHealthFull.BackColor = System.Drawing.Color.Red;
       this.lblPlayerHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblPlayerHealthFull.ForeColor = System.Drawing.Color.White;
-      this.lblPlayerHealthFull.Location = new System.Drawing.Point(71, 60);
+      this.lblPlayerHealthFull.Location = new System.Drawing.Point(71, 30);
       this.lblPlayerHealthFull.Name = "lblPlayerHealthFull";
       this.lblPlayerHealthFull.Size = new System.Drawing.Size(226, 20);
       this.lblPlayerHealthFull.TabIndex = 3;
@@ -89,7 +89,7 @@
       this.lblPlayerMagicFull.BackColor = System.Drawing.Color.Blue;
       this.lblPlayerMagicFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblPlayerMagicFull.ForeColor = System.Drawing.Color.White;
-      this.lblPlayerMagicFull.Location = new System.Drawing.Point(71, 30);
+      this.lblPlayerMagicFull.Location = new System.Drawing.Point(71, 60);
       this.lblPlayerMagicFull.Name = "lblPlayerMagicFull";
       this.lblPlayerMagicFull.Size = new System.Drawing.Size(226, 20);
       this.lblPlayerMagicFull.TabIndex = 3;
@@ -117,7 +117,7 @@
       this.lblEnemyHealthFull.BackColor = System.Drawing.Color.Red;
       this.lblEnemyHealthFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblEnemyHealthFull.ForeColor = System.Drawing.Color.White;
-      this.lblEnemyHealthFull.Location = new System.Drawing.Point(516, 60);
+      this.lblEnemyHealthFull.Location = new System.Drawing.Point(516, 30);
       this.lblEnemyHealthFull.Name = "lblEnemyHealthFull";
       this.lblEnemyHealthFull.Size = new System.Drawing.Size(226, 20);
       this.lblEnemyHealthFull.TabIndex = 6;
