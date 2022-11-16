@@ -100,7 +100,6 @@ namespace Fall2020_CSC403_Project {
             if (enemySusNugget.Health <= 0){
               picEnemySusNugget.Hide();
             }
-        }
             if (player.Health <= 0)
             {
                 picPlayer.Hide();
@@ -296,5 +295,15 @@ namespace Fall2020_CSC403_Project {
                 }
       }
     }
-  }
+
+        private void Quit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Restart_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
