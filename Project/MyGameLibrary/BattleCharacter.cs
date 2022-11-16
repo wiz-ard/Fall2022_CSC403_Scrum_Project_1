@@ -16,7 +16,6 @@ namespace Fall2020_CSC403_Project.code {
     public int Strength { get; private set; }
     public int EnemyStrength { get; private set; }
     public int Armor { get; private set; }
-        public int MaxHealth { get; private set; }
 
     public int MaxArmor { get; private set; }
 
@@ -32,7 +31,7 @@ namespace Fall2020_CSC403_Project.code {
       MaxHealth = 20;
       MaxMagic = 20;
             MaxArmor = 10;
-                armor = MaxArmor;
+                Armor = MaxArmor;
       CurrentStrength = 2;
       Strength = CurrentStrength;
       EnemyStrength = 2;
