@@ -1,6 +1,7 @@
 ﻿using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
@@ -11,6 +12,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
     private Character[] walls;
+    private Armor armor;
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
@@ -27,6 +29,7 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      armor = new Armor(CreatePosition(armorPickup), CreateCollider(armorPickup, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -65,31 +68,54 @@ namespace Fall2020_CSC403_Project {
       lblInGameTime.Text = "Time: " + time.ToString();
     }
 
-    private void tmrPlayerMove_Tick(object sender, EventArgs e) {
-      // move player
-      player.Move();
+        private void tmrPlayerMove_Tick(object sender, EventArgs e) {
+            // move player
+            player.Move();
 
-      // check collision with walls
-      if (HitAWall(player)) {
-        player.MoveBack();
-      }
+            // check collision with walls
+            if (HitAWall(player)) {
+                player.MoveBack();
+            }
 
-      // check collision with enemies
-      if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
-      }
-      else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
-      }
-      if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
-      }
+            // check collision with enemies
+            if (HitAChar(player, enemyPoisonPacket)) {
+                Fight(enemyPoisonPacket);
+            }
+            else if (HitAChar(player, enemyCheeto)) {
+                Fight(enemyCheeto);
+            }
+            if (HitAChar(player, bossKoolaid)) {
+                Fight(bossKoolaid);
+            }
+            if (HitAChar(player, armor) ) {
+                //player.Armor += 5;
+                //player.MaxArmor = 10;
+                applyArmor();
+                armorPickup.Hide();
+            }
+        
+            
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
-    private bool HitAWall(Character c) {
+    void applyArmor()
+    {
+       
+                if (player.Armor < 10)
+                {
+                    player.AlterShield(4);
+                }
+            
+         
+    }
+    /*void armorShow()
+        {
+            frmBattle.UpdateArmor();
+        }*/
+
+        private bool HitAWall(Character c) {
       bool hitAWall = false;
       for (int w = 0; w < walls.Length; w++) {
         if (c.Collider.Intersects(walls[w].Collider)) {
@@ -110,10 +136,11 @@ namespace Fall2020_CSC403_Project {
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
 
-      if (enemy == bossKoolaid) {
-        frmBattle.SetupForBossBattle();
-      }
-    }
+            if (enemy == bossKoolaid)
+            {
+                frmBattle.SetupForBossBattle();
+            }
+        }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
       switch (e.KeyCode) {
