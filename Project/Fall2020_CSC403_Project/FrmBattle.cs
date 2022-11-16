@@ -39,10 +39,15 @@ namespace Fall2020_CSC403_Project {
       //enemy.AttackEvent += PlayerDamage;
       enemy.AttackEvent += ArmorDamage;
       player.AttackEvent += EnemyDamage;
+      player.HealEvent += PlayerMagic;
+      player.Strength_UpEvent += PlayerMagic;
 
             // show health
       UpdateArmor();
       UpdateHealthBars();
+      
+      // show magic
+      UpdateMagicBars();
     }
 
         public void SetupForBossBattle()
@@ -119,34 +124,52 @@ namespace Fall2020_CSC403_Project {
       lblPlayerHealthFull.Text = player.Health.ToString();
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
-
-     public void UpdateArmor()
-     {
-            float armorHealthPer= player.Armor/ (float)player.MaxArmor;
+        public void UpdateArmor()
+        {
+            float armorHealthPer = player.Armor / (float)player.MaxArmor;
             //float playerHealthPer = player.Health / (float)player.MaxHealth;
             //float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
 
             const int MAX_ARMORBAR_WIDTH = 226;
             //const int MAX_HEALTHBAR_WIDTH = 226;
             label3.Width = (int)(MAX_ARMORBAR_WIDTH * armorHealthPer);
-           // lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+            // lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
             //lblEnemyHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * enemyHealthPer);
 
             label3.Text = player.Armor.ToString();
             //lblEnemyHealthFull.Text = enemy.Health.ToString();
         }
 
+    
+    private void UpdateMagicBars() {
+      float playerMagicPer = player.Magic / (float)player.MaxMagic;
 
-        private void btnAttack_Click(object sender, EventArgs e)
-        {
-            player.OnAttack(-4);
+      const int MAX_MAGICBAR_WIDTH = 226;
+      lblPlayerMagicFull.Width = (int)(MAX_MAGICBAR_WIDTH * playerMagicPer);
+
+      lblPlayerMagicFull.Text = player.Magic.ToString();
+    }
+
+    private void btnAttack_Click(object sender, EventArgs e)
+    {
+      if (player.Strength == 2) {
+        player.OnAttack(-4);
+      }
             if (enemy.Health > 0)
             {
                 enemy.OnAttack(-2);
             }
 
-            UpdateArmor();
-            UpdateHealthBars();
+      if (player.Strength == 5) {
+        player.OnAttack(-3); 
+        }
+
+      if (enemy.Health > 0)
+        {
+            enemy.OnEnemyAttack(-2);
+        }
+        UpdateArmor();
+        UpdateHealthBars();
             if (player.Health <= 0 || enemy.Health <= 0)
             {
                 instance = null;
@@ -154,28 +177,53 @@ namespace Fall2020_CSC403_Project {
             }
             if (enemy.Health <= 0 && player.Health > enemy.Health)
             {
-                    SetupForVictoryScreen();
+                SetupForVictoryScreen();
             }
-            /*else if(player.Health <=0 && enemy.Health <= 0)
-            {
-                Close();
-            }*/
+            if (player.Health <= 0)
+        {
+            player.ChangeStrengthBack();
+            instance = null;
+            Close();
+            player.Collider.DeleteCollider();
         }
+        if (enemy.Health <= 0)
+        {
+            player.ChangeStrengthBack();
+            instance = null;
+            Close();
+            enemy.Collider.DeleteCollider();
+            FrmLevel.IsPaused = false;
+        }
+    }
     
+    private void btnHeal_Click(object sender, EventArgs e) {
+        if (player.Health < player.MaxHealth && player.Magic >= 5 && enemy.Health > 0) {
+          player.OnHeal(-5);
+        } 
+    }
 
-    private void ArmorDamage(int amount)
+    private void btnStrength_Up_Click(object sender, EventArgs e) {
+        if (player.Strength == 2 && player.Magic >= 10 && enemy.Health > 0) {
+          player.OnStrength_Up(-10);
+          player.AlterStrength(3);
+        }
+            
+        UpdateMagicBars();
+    }
+        private void ArmorDamage(int amount)
         {
             player.AlterShield(amount);
         }
 
-    private void ArmorAdjust(int armor)
+        private void ArmorAdjust(int armor)
         {
             if (player.Armor <= 0)
             {
                 enemy.AttackEvent += PlayerDamage;
             }
         }
-    private void EnemyDamage(int amount) {
+
+        private void EnemyDamage(int amount) {
             ArmorAdjust(amount);
             enemy.AlterHealth(amount);
     }
@@ -185,29 +233,30 @@ namespace Fall2020_CSC403_Project {
             player.AlterHealth(amount);
       
     }
-
-    private void tmrFinalBattle_Tick(object sender, EventArgs e) {
-      picBossBattle.Visible = false;
-      tmrFinalBattle.Enabled = true;
+    
+    private void PlayerMagic(int amount) {
+      player.AlterMagic(amount);
+      for (int i=1; i<11; i++) {
+          if (player.Health < player.MaxHealth) {
+              player.AlterHealth(1);
+              UpdateHealthBars();
+          }
+          i++;
+      }
+      UpdateMagicBars();
     }
-        private void lblbattletime_Click(object sender, EventArgs e)
+
+    private void PlayerStrength(int amount) {
+      player.AlterStrength(3);
+    }
+        private void ArmorDamage(int amount)
         {
-
+            player.AlterShield(amount);
         }
-
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
+        private void tmrFinalBattle_Tick(object sender, EventArgs e) {
+      tmrFinalBattle.Enabled = false;
+      picBossBattle.Visible = false;
         }
-
-        private void FrmBattle_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+  }
     }
 }
