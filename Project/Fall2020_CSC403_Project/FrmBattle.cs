@@ -26,9 +26,14 @@ namespace Fall2020_CSC403_Project {
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
       player.AttackEvent += EnemyDamage;
+      player.HealEvent += PlayerMagic;
+      player.Strength_UpEvent += PlayerMagic;
 
       // show health
       UpdateHealthBars();
+      
+      // show magic
+      UpdateMagicBars();
     }
 
     public void SetupForBossBattle() {
@@ -62,37 +67,86 @@ namespace Fall2020_CSC403_Project {
       lblPlayerHealthFull.Text = player.Health.ToString();
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
+    
+    private void UpdateMagicBars() {
+      float playerMagicPer = player.Magic / (float)player.MaxMagic;
 
-        private void btnAttack_Click(object sender, EventArgs e)
-        {
-            player.OnAttack(-4);
-            if (enemy.Health > 0)
-            {
-                enemy.OnAttack(-2);
-            }
+      const int MAX_MAGICBAR_WIDTH = 226;
+      lblPlayerMagicFull.Width = (int)(MAX_MAGICBAR_WIDTH * playerMagicPer);
 
-            UpdateHealthBars();
-            if (player.Health <= 0)
-            {
-                instance = null;
-                Close();
-                player.Collider.DeleteCollider();
-            }
-            if (enemy.Health <= 0)
-            {
-                instance = null;
-                Close();
-                enemy.Collider.DeleteCollider();
-                FrmLevel.IsPaused = false;
-            }
+      lblPlayerMagicFull.Text = player.Magic.ToString();
+    }
+
+    private void btnAttack_Click(object sender, EventArgs e)
+    {
+      if (player.Strength == 2) {
+        player.OnAttack(-4);
         }
 
-        private void EnemyDamage(int amount) {
+      if (player.Strength == 5) {
+        player.OnAttack(-3); 
+        }
+
+      if (enemy.Health > 0)
+        {
+            enemy.OnEnemyAttack(-2);
+        }
+
+        UpdateHealthBars();
+        if (player.Health <= 0)
+        {
+            player.ChangeStrengthBack();
+            instance = null;
+            Close();
+            player.Collider.DeleteCollider();
+        }
+        if (enemy.Health <= 0)
+        {
+            player.ChangeStrengthBack();
+            instance = null;
+            Close();
+            enemy.Collider.DeleteCollider();
+            FrmLevel.IsPaused = false;
+        }
+    }
+    
+    private void btnHeal_Click(object sender, EventArgs e) {
+        if (player.Health < player.MaxHealth && player.Magic >= 5 && enemy.Health > 0) {
+          player.OnHeal(-5);
+        } 
+    }
+
+    private void btnStrength_Up_Click(object sender, EventArgs e) {
+        if (player.Strength == 2 && player.Magic >= 10 && enemy.Health > 0) {
+          player.OnStrength_Up(-10);
+          player.AlterStrength(3);
+        }
+            
+        UpdateMagicBars();
+    }
+
+    private void EnemyDamage(int amount) {
       enemy.AlterHealth(amount);
     }
 
     private void PlayerDamage(int amount) {
       player.AlterHealth(amount);
+    }
+    
+    private void PlayerMagic(int amount) {
+      player.AlterMagic(amount);
+      for (int i=1; i<11; i++) {
+          if (player.Health < player.MaxHealth) {
+              player.AlterHealth(1);
+              UpdateHealthBars();
+          }
+          i++;
+      }
+      UpdateMagicBars();
+    }
+
+    private void PlayerStrength(int amount) {
+      player.AlterStrength(3);
     }
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
