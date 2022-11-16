@@ -45,11 +45,10 @@ namespace Fall2020_CSC403_Project {
       UpdateHealthBars();
     }
 
-        public void SetupForBossBattle()
-        {
-            picBossBattle.Location = Point.Empty;
-            picBossBattle.Size = ClientSize;
-            picBossBattle.Visible = true;
+    public void SetupForBossBattle() {
+      picBossBattle.Location = Point.Empty;
+      picBossBattle.Size = ClientSize;
+      picBossBattle.Visible = true;
 
             SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
             simpleSound.Play();
@@ -68,8 +67,7 @@ namespace Fall2020_CSC403_Project {
             picVictory.Visible = true;*/
         }
 
-
-        public static FrmBattle GetInstance(Enemy enemy) {
+    public static FrmBattle GetInstance(Enemy enemy) {
       if (instance == null) {
         instance = new FrmBattle();
         instance.enemy = enemy;
@@ -147,67 +145,48 @@ namespace Fall2020_CSC403_Project {
 
             UpdateArmor();
             UpdateHealthBars();
-            if (player.Health <= 0 || enemy.Health <= 0)
+            if (player.Health <= 0)
             {
                 instance = null;
                 Close();
+                player.Collider.DeleteCollider();
             }
-            if (enemy.Health <= 0 && player.Health > enemy.Health)
+            if (enemy.Health <= 0)
             {
-                    SetupForVictoryScreen();
-            }
-            /*else if(player.Health <=0 && enemy.Health <= 0)
-            {
+                instance = null;
                 Close();
-            }*/
+                enemy.Collider.DeleteCollider();
+                FrmLevel.IsPaused = false;
+                SetupForVictoryScreen();
+            }
         }
-    
 
-    private void ArmorDamage(int amount)
+        private void EnemyDamage(int amount) {
+            ArmorAdjust(amount);
+            enemy.AlterHealth(amount);
+    }
+        private void ArmorDamage(int amount)
         {
             player.AlterShield(amount);
         }
 
-    private void ArmorAdjust(int armor)
+        private void ArmorAdjust(int armor)
         {
             if (player.Armor <= 0)
             {
                 enemy.AttackEvent += PlayerDamage;
             }
         }
-    private void EnemyDamage(int amount) {
-            ArmorAdjust(amount);
-            enemy.AlterHealth(amount);
-    }
 
 
-    private void PlayerDamage(int amount) {
+        private void PlayerDamage(int amount) {
             player.AlterHealth(amount);
       
     }
 
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
-      picBossBattle.Visible = false;
-      tmrFinalBattle.Enabled = true;
+      tmrFinalBattle.Enabled = false;
     }
-        private void lblbattletime_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmBattle_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+  }
     }
-}
+
