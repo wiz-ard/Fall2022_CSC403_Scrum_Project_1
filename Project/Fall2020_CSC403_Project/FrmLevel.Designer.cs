@@ -139,7 +139,7 @@
             this.picEnemyMikeTysonsNugget.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemyMikeTysonsNugget.Location = new System.Drawing.Point(500, 80);
             this.picEnemyMikeTysonsNugget.Name = "picEnemyMikeTysonsNugget";
-            this.picEnemyMikeTysonsNugget.Size = new System.Drawing.Size(150, 150);
+            this.picEnemyMikeTysonsNugget.Size = new System.Drawing.Size(180, 150);
             this.picEnemyMikeTysonsNugget.TabIndex = 18;
             this.picEnemyMikeTysonsNugget.TabStop = false;
             // 
