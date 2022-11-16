@@ -115,7 +115,7 @@ namespace Fall2020_CSC403_Project {
       hardplayer.Move();
 
       // check collision with walls
-      if (HitAWall(player)) {
+      if (HitAWall(hardplayer)) {
         hardplayer.MoveBack();
       }
 
