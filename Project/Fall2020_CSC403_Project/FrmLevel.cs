@@ -166,6 +166,7 @@ namespace Fall2020_CSC403_Project {
 
                     while (HitAChar(enemyCheeto, player))
                     {
+                        Fight(enemyCheeto);
                         enemyCheeto.MoveBack();
                         enemyCheeto.ResetMoveSpeed();
                     }
@@ -210,6 +211,7 @@ namespace Fall2020_CSC403_Project {
 
                     while (HitAChar(enemyPoisonPacket, player))
                     {
+                        Fight(enemyPoisonPacket);
                         enemyPoisonPacket.MoveBack();
                         enemyPoisonPacket.ResetMoveSpeed();
                     }
