@@ -35,10 +35,15 @@
       this.picBossBattle = new System.Windows.Forms.PictureBox();
       this.picEnemy = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
+      this.picVictory = new System.Windows.Forms.PictureBox();
       this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
+      this.lblbattletime = new System.Windows.Forms.Label();
+      this.tmrbattle_time = new System.Windows.Forms.Timer(this.components);
+      this.timer1 = new System.Windows.Forms.Timer(this.components);
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picVictory)).BeginInit();
       this.SuspendLayout();
       // 
       // btnAttack
@@ -157,6 +162,26 @@
       this.picPlayer.TabIndex = 0;
       this.picPlayer.TabStop = false;
       // 
+      // lblbattletime
+      // 
+      this.lblbattletime.AutoSize = true;
+      this.lblbattletime.BackColor = System.Drawing.Color.Red;
+      this.lblbattletime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblbattletime.ForeColor = System.Drawing.Color.White;
+      this.lblbattletime.Location = new System.Drawing.Point(400, 0);
+      this.lblbattletime.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+      this.lblbattletime.Name = "lblbattletime";
+      this.lblbattletime.Size = new System.Drawing.Size(95, 36);
+      this.lblbattletime.TabIndex = 2;
+      this.lblbattletime.Text = "label2";
+      this.lblbattletime.Click += new System.EventHandler(this.lblbattletime_Click);
+      // 
+      // tmrbattle_time
+      // 
+      this.tmrbattle_time.Enabled = true;
+      this.tmrbattle_time.Interval = 500;
+      this.tmrbattle_time.Tick += new System.EventHandler(this.battle_time_Tick);
+      // 
       // tmrFinalBattle
       // 
       this.tmrFinalBattle.Interval = 5600;
@@ -180,6 +205,7 @@
       this.Controls.Add(this.btnStrength_Up);
       this.Controls.Add(this.picEnemy);
       this.Controls.Add(this.picPlayer);
+      this.Controls.Add(this.picVictory);
       this.DoubleBuffered = true;
       this.Name = "FrmBattle";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -187,6 +213,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picVictory)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -195,6 +222,7 @@
 
     private System.Windows.Forms.PictureBox picPlayer;
     private System.Windows.Forms.PictureBox picEnemy;
+    private System.Windows.Forms.PictureBox picVictory;
     private System.Windows.Forms.Button btnAttack;
     private System.Windows.Forms.Button btnHeal;
     private System.Windows.Forms.Button btnStrength_Up; 
@@ -205,5 +233,7 @@
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
+    private System.Windows.Forms.Label lblbattletime;
+    private System.Windows.Forms.Timer timer1;
   }
 }
