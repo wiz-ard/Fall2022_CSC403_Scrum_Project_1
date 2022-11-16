@@ -11,7 +11,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemy;
     private Player player;
 
-    private FrmBattle() {
+    private HardFrmBattle() {
       InitializeComponent();
       player = Game.player;
     }
@@ -46,6 +46,13 @@ namespace Fall2020_CSC403_Project {
 
       tmrFinalBattle.Enabled = true;
     }
+    
+    public void SetupForVictoryScreen()
+        {
+            frmVictory victory = new frmVictory();
+            victory.Show();
+            this.Hide();
+        }
 
     public static FrmBattle GetInstance(Enemy enemy) {
       if (instance == null) {
@@ -55,6 +62,26 @@ namespace Fall2020_CSC403_Project {
       }
       return instance;
     }
+    
+    private void battle_time_Tick(object sender,EventArgs e)
+        {
+            lblbattletime.Text = start_time--.ToString();
+            if (start_time < 0)
+            {
+                tmrbattle_time.Stop();
+                instance = null;
+                if (player.Health > enemy.Health)
+                {
+                    SetupForVictoryScreen();
+                }
+                else if (player.Health == enemy.Health)
+                {
+                    Close();
+                }
+            }
+
+                  
+        }
 
     private void UpdateHealthBars() {
       float playerHealthPer = player.Health / (float)player.MaxHealth;
@@ -64,7 +91,7 @@ namespace Fall2020_CSC403_Project {
       lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
       lblEnemyHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * enemyHealthPer);
 
-      lblPlayerHealthFull.Text = player.Health.ToString();
+      lblPlayerHealthFull.Text = hardplayer.Health.ToString();
       lblEnemyHealthFull.Text = enemy.Health.ToString();
     }
     
@@ -98,7 +125,7 @@ namespace Fall2020_CSC403_Project {
             player.ChangeStrengthBack();
             instance = null;
             Close();
-            player.Collider.DeleteCollider();
+            hardplayer.Collider.DeleteCollider();
         }
         if (enemy.Health <= 0)
         {
@@ -106,7 +133,7 @@ namespace Fall2020_CSC403_Project {
             instance = null;
             Close();
             enemy.Collider.DeleteCollider();
-            FrmLevel.IsPaused = false;
+            HardFrmLevel.IsPaused = false;
         }
     }
     
